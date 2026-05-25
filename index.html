@@ -103,40 +103,216 @@
   </section>
 
    <!-- About Content -->
-  <section id="about" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
-    <div class="max-w-4xl mx-auto flex flex-col items-center text-center bg-white/5 backdrop-blur-lg border border-white/10 p-10 md:p-16 rounded-[2rem] shadow-2xl">
-      <div class="w-32 h-32 bg-gradient-to-br from-hotPink to-deepPurple text-white rounded-full flex items-center justify-center mb-8 shadow-lg shadow-deepPurple/50 border border-white/20">
-         <i class="fa-solid fa-user-astronaut text-5xl"></i>
+  <section id="about" class="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+    <div class="max-w-6xl mx-auto w-full">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div class="w-20 h-20 mx-auto bg-gradient-to-br from-hotPink to-deepPurple text-white rounded-full flex items-center justify-center mb-6 shadow-lg shadow-deepPurple/50 border border-white/20">
+           <i class="fa-solid fa-user-astronaut text-4xl"></i>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Me</span></h2>
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-white">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Me</span></h2>
-      <p class="text-lg md:text-xl leading-relaxed max-w-3xl font-medium text-gray-300">
-        I am a dedicated software engineer with a strong focus on creating clean, elegant, and efficient solutions. I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies and continuously learning to improve my craft. My goal is to build digital products that make a real difference.
-      </p>
+
+      <!-- Top Row: Split Layout (Creative Text & Intro) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12 max-w-6xl mx-auto w-full">
+        
+        <!-- Left Column: Creative Text Design -->
+        <div class="flex flex-col justify-center items-start text-left bg-white/5 backdrop-blur-lg border border-white/10 p-8 md:p-12 rounded-[2rem] shadow-2xl h-full relative overflow-hidden group min-h-[400px]">
+            <!-- Decorative background glow -->
+            <div class="absolute -top-24 -left-24 w-56 h-56 bg-hotPink/20 rounded-full blur-[80px] group-hover:bg-hotPink/30 transition-colors duration-700"></div>
+            <div class="absolute -bottom-24 -right-24 w-56 h-56 bg-deepPurple/20 rounded-full blur-[80px] group-hover:bg-deepPurple/30 transition-colors duration-700"></div>
+            
+            <h3 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight z-10 tracking-tight">
+                Driven by <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink via-blue-400 to-deepPurple bg-[length:200%_auto] animate-aurora inline-block mt-2 min-h-[1.2em]" id="typewriter"></span><span class="text-white animate-pulse">|</span>
+            </h3>
+            <p class="text-gray-400 text-lg md:text-xl font-medium max-w-sm z-10 leading-relaxed">
+                Combining technical expertise with a creative mindset to build solutions that truly matter.
+            </p>
+        </div>
+
+        <!-- Right Column: Intro, Info & CV Button -->
+        <div class="flex flex-col items-start justify-center text-left h-full lg:pl-8">
+            <h3 class="text-2xl font-bold text-center text-white mb-4">Who am I?</h3>
+            <p class="text-lg text-gray-200 leading-relaxed font-medium mb-6">
+              Hi, I'm Faijah, a passionate Software Engineering student and aspiring Full-Stack Developer.
+            </p>
+            <p class="text-base text-gray-400 leading-relaxed mb-8">
+              I thrive on turning complex problems into simple, elegant, and efficient digital solutions. With a keen interest in modern web technologies and a constant drive to learn, I enjoy crafting user-centric experiences. When I'm not coding, you can find me exploring new design trends, contributing to open-source, or brainstorming my next big project.
+            </p>
+            
+            <div class="mt-2 w-full flex justify-center">
+              <a href="resume.pdf" download class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-hotPink to-deepPurple text-white px-8 py-3.5 rounded-full font-bold text-lg shadow-lg shadow-hotPink/25 hover:shadow-hotPink/40 transition-all transform hover:-translate-y-1">
+                Download CV <i class="fa-solid fa-download"></i>
+              </a>
+            </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row: Education & Experience (Side by side) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
+          
+          <!-- Education Section -->
+          <div class="flex flex-col h-full group">
+            
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-12 h-12 rounded-full bg-hotPink/20 flex items-center justify-center text-hotPink border border-hotPink/30 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-graduation-cap text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Education</h3>
+            </div>
+            
+            <div class="space-y-4">
+              <div class="group/item bg-darkBg/50 rounded-xl p-6 border border-white/5 hover:border-hotPink/50 transition-all duration-300">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="text-lg font-bold text-white group-hover/item:text-hotPink transition-colors">Bachelor of Science in Information Technology</h4>
+                  <span class="text-xs font-semibold text-hotPink bg-hotPink/10 border border-hotPink/20 px-3 py-1 rounded-full whitespace-nowrap">2023 - Present</span>
+                </div>
+                <p class="text-sm text-gray-300 font-medium">Pamantasan ng Lungsod ng Valenzuela</p>
+                <p class="text-sm text-gray-500 mt-3 leading-relaxed">Dean’s Lister (A.Y. 2023–2024, A.Y. 2024-2025)<br>Capstone: A Web-based AI-Driven Supplemental System in Learning Mathematics</p>
+              </div>
+
+              <div class="group/item bg-darkBg/50 rounded-xl p-6 border border-white/5 hover:border-hotPink/50 transition-all duration-300">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="text-lg font-bold text-white group-hover/item:text-hotPink transition-colors">Information and Communications Technology (ICT)</h4>
+                  <span class="text-xs font-semibold text-hotPink bg-hotPink/10 border border-hotPink/20 px-3 py-1 rounded-full whitespace-nowrap">2021 - 2023</span>
+                </div>
+                <p class="text-sm text-gray-300 font-medium">Electron College of Technical Education – Senior High School</p>
+                <p class="text-sm text-gray-500 mt-3 leading-relaxed">With High Honors</p>
+              </div>
+            </div>
+            
+          </div>
+
+          <!-- Experience Section -->
+          <div class="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden shadow-lg group">
+            
+            <div class="p-6 border-b border-white/5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-deepPurple/20 flex items-center justify-center text-deepPurple border border-deepPurple/30 group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-briefcase text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Experience</h3>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="group/item bg-darkBg/50 rounded-xl p-6 border border-white/5 hover:border-deepPurple/50 transition-all duration-300">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="text-lg font-bold text-white group-hover/item:text-deepPurple transition-colors">Web Developer</h4>
+                  <span class="text-xs font-semibold text-deepPurple bg-deepPurple/10 border border-deepPurple/20 px-3 py-1 rounded-full whitespace-nowrap">Jan 2026 - Present</span>
+                </div>
+                <p class="text-sm text-gray-300 font-medium">El International Church of Valenzuela</p>
+                <p class="text-sm text-gray-500 mt-3 leading-relaxed">Built and designed a dedicated organizational website to improve digital presence and accessibility. Developed responsive web pages and improved overall website usability.</p>
+              </div>
+              
+              <div class="group/item bg-darkBg/50 rounded-xl p-6 border border-white/5 hover:border-deepPurple/50 transition-all duration-300">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="text-lg font-bold text-white group-hover/item:text-deepPurple transition-colors">Freelance Web Designer</h4>
+                  <span class="text-xs font-semibold text-deepPurple bg-deepPurple/10 border border-deepPurple/20 px-3 py-1 rounded-full whitespace-nowrap">Jan 2025 - May 2025</span>
+                </div>
+                <p class="text-sm text-gray-300 font-medium">Agape Blossoms</p>
+                <p class="text-sm text-gray-500 mt-3 leading-relaxed">Developed a custom e-commerce website for a local flower business to support online product display and customer inquiries. Designed responsive user interfaces and product catalog pages using modern web design principles.</p>
+              </div>
+
+              <div class="group/item bg-darkBg/50 rounded-xl p-6 border border-white/5 hover:border-deepPurple/50 transition-all duration-300">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="text-lg font-bold text-white group-hover/item:text-deepPurple transition-colors">Remote Freelance Data Entry Specialist</h4>
+                  <span class="text-xs font-semibold text-deepPurple bg-deepPurple/10 border border-deepPurple/20 px-3 py-1 rounded-full whitespace-nowrap">Sep 2024</span>
+                </div>
+                <p class="text-sm text-gray-300 font-medium">Upwork</p>
+                <p class="text-sm text-gray-500 mt-3 leading-relaxed">Encoded and organized raw data into structured spreadsheets for international clients. Verified data accuracy while maintaining confidentiality and meeting project deadlines.</p>
+              </div>
+
+              <div class="group/item bg-darkBg/50 rounded-xl p-6 border border-white/5 hover:border-deepPurple/50 transition-all duration-300">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="text-lg font-bold text-white group-hover/item:text-deepPurple transition-colors">Freelance Graphic Designer</h4>
+                  <span class="text-xs font-semibold text-gray-300 bg-white/10 border border-white/10 px-3 py-1 rounded-full whitespace-nowrap">2023 - Present</span>
+                </div>
+                <p class="text-sm text-gray-300 font-medium">Self-Employed</p>
+              </div>
+            </div>
+            
+          </div>
+
+      </div>
     </div>
   </section>
 
     <!-- Skills Content -->
   <section id="skills" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
-    <div class="max-w-5xl mx-auto text-center w-full">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-white">Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Skills</span></h2>
+    <div class="max-w-6xl mx-auto w-full">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Skills</span></h2>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto font-medium">A comprehensive overview of my technical toolkit, from core programming languages to project management and design.</p>
+      </div>
       
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-hotPink/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
-          <i class="fa-brands fa-html5 text-5xl mb-4 text-hotPink group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-xl text-white">HTML & CSS</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Category 1: Programming & Web Development -->
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-hotPink/50 transition-all duration-300 shadow-xl group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-hotPink/20 flex items-center justify-center text-hotPink border border-hotPink/30 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-code text-xl"></i>
+            </div>
+            <h3 class="font-bold text-2xl text-white">Programming & Web Dev</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">HTML</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">CSS</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">JavaScript</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">Python</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">Java</span>
+          </div>
         </div>
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-deepPurple/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
-          <i class="fa-brands fa-js text-5xl mb-4 text-[#f7df1e] group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-xl text-white">JavaScript</h3>
+
+        <!-- Category 2: Tools & Platforms -->
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-deepPurple/50 transition-all duration-300 shadow-xl group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-deepPurple/20 flex items-center justify-center text-deepPurple border border-deepPurple/30 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+            </div>
+            <h3 class="font-bold text-2xl text-white">Tools & Platforms</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">GitHub</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Git</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Jira</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">ClickUp</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Figma</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Vercel</span>
+          </div>
         </div>
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-hotPink/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
-          <i class="fa-solid fa-wind text-5xl mb-4 text-[#38bdf8] group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-xl text-white">Tailwind CSS</h3>
+
+        <!-- Category 3: Productivity Tools -->
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-blue-400/50 transition-all duration-300 shadow-xl group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 border border-blue-400/30 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-briefcase text-xl"></i>
+            </div>
+            <h3 class="font-bold text-2xl text-white">Productivity Tools</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-blue-400 hover:border-blue-400/50 transition-colors cursor-default">Microsoft Office Suite</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-blue-400 hover:border-blue-400/50 transition-colors cursor-default">Google Workspace</span>
+          </div>
         </div>
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-deepPurple/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
-          <i class="fa-brands fa-react text-5xl mb-4 text-[#61dafb] group-hover:scale-110 transition-transform"></i>
-          <h3 class="font-bold text-xl text-white">React</h3>
+
+        <!-- Category 4: Other Skills -->
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-teal-400/50 transition-all duration-300 shadow-xl group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 border border-teal-400/30 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-lightbulb text-xl"></i>
+            </div>
+            <h3 class="font-bold text-2xl text-white">Other Skills</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">QA Testing</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">UI/UX Design</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">Agile/Scrum</span>
+            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">Responsive Web Design</span>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -192,7 +368,45 @@
     </div>
   </section>
 
+  <!-- Typewriter Script -->
+  <script>
+    const words = ["Leadership.", "Collaboration.", "Design.", "Innovation."];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    let isDeleting = false;
+    const typewriterElement = document.getElementById("typewriter");
 
+    function type() {
+        if (!typewriterElement) return;
+        
+        currentWord = words[i];
+        if (isDeleting) {
+            typewriterElement.textContent = currentWord.substring(0, j - 1);
+            j--;
+        } else {
+            typewriterElement.textContent = currentWord.substring(0, j + 1);
+            j++;
+        }
+
+        let typeSpeed = isDeleting ? 80 : 120;
+
+        if (!isDeleting && j === currentWord.length) {
+            typeSpeed = 2000; // Pause at end of word
+            isDeleting = true;
+        } else if (isDeleting && j === 0) {
+            isDeleting = false;
+            i = (i + 1) % words.length;
+            typeSpeed = 400; // Pause before typing next word
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(type, 1000);
+    });
+  </script>
 </body>
 
 </html>
