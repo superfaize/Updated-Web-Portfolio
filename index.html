@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-20">
 
 <head>
   <meta charset="UTF-8">
@@ -82,7 +82,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center p-6 pt-24 opacity-0 animate-fade-in-up">
+  <section id="hero" class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20 pb-16 opacity-0 animate-fade-in-up">
     <div class="mb-6 inline-block px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-gray-300 text-sm font-medium tracking-wide">
       <i class="fa-solid fa-code text-deepPurple"></i> Software Developer
     </div>
@@ -103,14 +103,11 @@
   </section>
 
    <!-- About Content -->
-  <section id="about" class="relative z-10 min-h-screen flex flex-col justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+  <section id="about" class="relative z-10 flex flex-col pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
     <div class="max-w-6xl mx-auto w-full">
       
       <!-- Section Header -->
-      <div class="text-center mb-16">
-        <div class="w-20 h-20 mx-auto bg-gradient-to-br from-hotPink to-deepPurple text-white rounded-full flex items-center justify-center mb-6 shadow-lg shadow-deepPurple/50 border border-white/20">
-           <i class="fa-solid fa-user-astronaut text-4xl"></i>
-        </div>
+      <div class="text-center mb-10">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Me</span></h2>
       </div>
 
@@ -136,14 +133,14 @@
         <div class="flex flex-col items-start justify-center text-left h-full lg:pl-8">
             <h3 class="text-2xl font-bold text-center text-white mb-4">Who am I?</h3>
             <p class="text-lg text-gray-200 leading-relaxed font-medium mb-6">
-              Hi, I'm Faijah, a passionate Software Engineering student and aspiring Full-Stack Developer.
+              Hi, I'm Faijah, an  Information Technology student and aspiring Web Developer.
             </p>
             <p class="text-base text-gray-400 leading-relaxed mb-8">
-              I thrive on turning complex problems into simple, elegant, and efficient digital solutions. With a keen interest in modern web technologies and a constant drive to learn, I enjoy crafting user-centric experiences. When I'm not coding, you can find me exploring new design trends, contributing to open-source, or brainstorming my next big project.
+             I am a passionate and detail-oriented aspiring developer with experience in web development, QA testing, UI/UX design, and Agile project collaboration. Skilled in HTML, CSS, JavaScript, Python, Java, Figma, GitHub, Jira, and ClickUp, I enjoy creating responsive and user-friendly digital experiences. I have worked on academic and freelance projects involving website development, software testing, and collaborative project management. Currently seeking an internship opportunity to further develop my technical and problem-solving skills in a professional environment.
             </p>
             
             <div class="mt-2 w-full flex justify-center">
-              <a href="resume.pdf" download class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-hotPink to-deepPurple text-white px-8 py-3.5 rounded-full font-bold text-lg shadow-lg shadow-hotPink/25 hover:shadow-hotPink/40 transition-all transform hover:-translate-y-1">
+              <a href="https://drive.google.com/uc?export=download&id=1vnWwoN3IWTKx3i7_AOBNiHBS275NSKks" target="_blank" download class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-hotPink to-deepPurple text-white px-8 py-3.5 rounded-full font-bold text-lg shadow-lg shadow-hotPink/25 hover:shadow-hotPink/40 transition-all transform hover:-translate-y-1">
                 Download CV <i class="fa-solid fa-download"></i>
               </a>
             </div>
@@ -239,78 +236,177 @@
   </section>
 
     <!-- Skills Content -->
-  <section id="skills" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+  <section id="skills" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
     <div class="max-w-6xl mx-auto w-full">
-      <div class="text-center mb-16">
+      <div class="text-center mb-10">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-white">Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Skills</span></h2>
         <p class="text-lg text-gray-300 max-w-2xl mx-auto font-medium">A comprehensive overview of my technical toolkit, from core programming languages to project management and design.</p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Tabs Navigation -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button onclick="filterSkills('all')" data-category="all" class="skill-tab px-5 py-2.5 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+            <i class="fa-solid fa-border-all mr-2"></i>All
+        </button>
+        <button onclick="filterSkills('development')" data-category="development" class="skill-tab px-5 py-2.5 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+            <i class="fa-solid fa-code mr-2"></i>Development
+        </button>
+        <button onclick="filterSkills('design')" data-category="design" class="skill-tab px-5 py-2.5 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+            <i class="fa-solid fa-pen-nib mr-2"></i>Design & Creative
+        </button>
+        <button onclick="filterSkills('management')" data-category="management" class="skill-tab px-5 py-2.5 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+            <i class="fa-solid fa-list-check mr-2"></i>Project Management
+        </button>
+        <button onclick="filterSkills('productivity')" data-category="productivity" class="skill-tab px-5 py-2.5 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+            <i class="fa-solid fa-briefcase mr-2"></i>Productivity & Tools
+        </button>
+        <button onclick="filterSkills('skills')" data-category="skills" class="skill-tab px-5 py-2.5 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+            <i class="fa-solid fa-star mr-2"></i>Skills
+        </button>
+      </div>
+      
+      <!-- Skills Content -->
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto w-full">
         
-        <!-- Category 1: Programming & Web Development -->
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-hotPink/50 transition-all duration-300 shadow-xl group">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full bg-hotPink/20 flex items-center justify-center text-hotPink border border-hotPink/30 group-hover:scale-110 transition-transform">
-              <i class="fa-solid fa-code text-xl"></i>
-            </div>
-            <h3 class="font-bold text-2xl text-white">Programming & Web Dev</h3>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">HTML</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">CSS</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">JavaScript</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">Python</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-hotPink hover:border-hotPink/50 transition-colors cursor-default">Java</span>
-          </div>
+        <!-- Programming & Web Development -->
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-html5 text-4xl mb-3 text-gray-400 group-hover:text-orange-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">HTML</span>
+        </div>
+        
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-css3-alt text-4xl mb-3 text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">CSS</span>
         </div>
 
-        <!-- Category 2: Tools & Platforms -->
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-deepPurple/50 transition-all duration-300 shadow-xl group">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full bg-deepPurple/20 flex items-center justify-center text-deepPurple border border-deepPurple/30 group-hover:scale-110 transition-transform">
-              <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
-            </div>
-            <h3 class="font-bold text-2xl text-white">Tools & Platforms</h3>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">GitHub</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Git</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Jira</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">ClickUp</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Figma</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-deepPurple hover:border-deepPurple/50 transition-colors cursor-default">Vercel</span>
-          </div>
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-js text-4xl mb-3 text-gray-400 group-hover:text-yellow-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">JavaScript</span>
         </div>
 
-        <!-- Category 3: Productivity Tools -->
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-blue-400/50 transition-all duration-300 shadow-xl group">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full bg-blue-400/20 flex items-center justify-center text-blue-400 border border-blue-400/30 group-hover:scale-110 transition-transform">
-              <i class="fa-solid fa-briefcase text-xl"></i>
-            </div>
-            <h3 class="font-bold text-2xl text-white">Productivity Tools</h3>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-blue-400 hover:border-blue-400/50 transition-colors cursor-default">Microsoft Office Suite</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-blue-400 hover:border-blue-400/50 transition-colors cursor-default">Google Workspace</span>
-          </div>
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-python text-4xl mb-3 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Python</span>
         </div>
 
-        <!-- Category 4: Other Skills -->
-        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-teal-400/50 transition-all duration-300 shadow-xl group">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-12 h-12 rounded-full bg-teal-400/20 flex items-center justify-center text-teal-400 border border-teal-400/30 group-hover:scale-110 transition-transform">
-              <i class="fa-solid fa-lightbulb text-xl"></i>
-            </div>
-            <h3 class="font-bold text-2xl text-white">Other Skills</h3>
-          </div>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">QA Testing</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">UI/UX Design</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">Agile/Scrum</span>
-            <span class="px-4 py-2 bg-darkBg/50 border border-white/10 rounded-xl text-gray-300 font-medium hover:text-teal-400 hover:border-teal-400/50 transition-colors cursor-default">Responsive Web Design</span>
-          </div>
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-java text-4xl mb-3 text-gray-400 group-hover:text-red-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Java</span>
+        </div>
+
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-git-alt text-4xl mb-3 text-gray-400 group-hover:text-orange-600 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Git</span>
+        </div>
+
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-github text-4xl mb-3 text-gray-400 group-hover:text-white transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">GitHub</span>
+        </div>
+
+        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-caret-up text-4xl mb-3 text-gray-400 group-hover:text-white transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Vercel</span>
+        </div>
+
+        <!-- Design & Creative -->
+        <div data-category="design" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(147,51,234,0.2)] hover:border-deepPurple/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-figma text-4xl mb-3 text-gray-400 group-hover:text-pink-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Figma</span>
+        </div>
+
+        <div data-category="design" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(147,51,234,0.2)] hover:border-deepPurple/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-palette text-4xl mb-3 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Canva</span>
+        </div>
+
+
+        <!-- Project Management -->
+        <div data-category="management" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(96,165,250,0.2)] hover:border-blue-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-brands fa-jira text-4xl mb-3 text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Jira</span>
+        </div>
+
+        <div data-category="management" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(96,165,250,0.2)] hover:border-blue-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-check-double text-4xl mb-3 text-gray-400 group-hover:text-purple-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">ClickUp</span>
+        </div>
+
+        <div data-category="management" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(96,165,250,0.2)] hover:border-blue-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-arrows-spin text-4xl mb-3 text-gray-400 group-hover:text-green-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Agile/Scrum</span>
+        </div>
+
+        <!-- Productivity Tools -->
+        <div data-category="productivity" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-file-word text-4xl mb-3 text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Microsoft Word</span>
+        </div>
+
+        <div data-category="productivity" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-file-excel text-4xl mb-3 text-gray-400 group-hover:text-green-600 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Microsoft Excel</span>
+        </div>
+
+        <div data-category="productivity" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-file-powerpoint text-4xl mb-3 text-gray-400 group-hover:text-orange-600 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Microsoft PowerPoint</span>
+        </div>
+
+        <div data-category="productivity" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-file-lines text-4xl mb-3 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Google Docs</span>
+        </div>
+
+        <div data-category="productivity" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-table text-4xl mb-3 text-gray-400 group-hover:text-green-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Google Sheets</span>
+        </div>
+
+        <!-- Skills Category -->
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-bug text-4xl mb-3 text-gray-400 group-hover:text-red-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Basic QA Testing</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(147,51,234,0.2)] hover:border-deepPurple/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-pen-ruler text-4xl mb-3 text-gray-400 group-hover:text-purple-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">UI/UX Design</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(96,165,250,0.2)] hover:border-blue-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-arrows-spin text-4xl mb-3 text-gray-400 group-hover:text-green-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-xs sm:text-sm text-center group-hover:text-white transition-colors">Agile / Scrum Project Management</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(147,51,234,0.2)] hover:border-deepPurple/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-mobile-screen text-4xl mb-3 text-gray-400 group-hover:text-blue-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-xs sm:text-sm text-center group-hover:text-white transition-colors">Responsive Web Design</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-lightbulb text-4xl mb-3 text-gray-400 group-hover:text-yellow-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Problem Solving</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-users text-4xl mb-3 text-gray-400 group-hover:text-teal-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Team Collaboration</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(255,20,147,0.2)] hover:border-hotPink/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-crown text-4xl mb-3 text-gray-400 group-hover:text-yellow-500 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Leadership</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(147,51,234,0.2)] hover:border-deepPurple/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-comments text-4xl mb-3 text-gray-400 group-hover:text-pink-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Communication</span>
+        </div>
+
+        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(45,212,191,0.2)] hover:border-teal-400/50 transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group">
+          <i class="fa-solid fa-shuffle text-4xl mb-3 text-gray-400 group-hover:text-green-400 transition-colors"></i>
+          <span class="font-bold text-gray-200 text-sm text-center group-hover:text-white transition-colors">Adaptability</span>
         </div>
 
       </div>
@@ -318,9 +414,9 @@
   </section>
 
   <!-- Featured Projects Content -->
-  <section id="projects" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+  <section id="projects" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
     <div class="max-w-6xl mx-auto w-full">
-      <div class="text-center mb-12">
+      <div class="text-center mb-8">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Project</span></h2>
         <p class="text-lg text-gray-300 max-w-2xl mx-auto font-medium">A quick glimpse into my recent work. Explore this featured application to see my technical skills in action.</p>
       </div>
@@ -355,12 +451,12 @@
   </section>
 
   <!-- Contact Content -->
-  <section id="contact" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+  <section id="contact" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
     <div class="max-w-2xl mx-auto text-center bg-white/5 backdrop-blur-lg p-12 rounded-[2rem] shadow-2xl border border-white/10">
       <div class="w-20 h-20 bg-gradient-to-br from-hotPink to-deepPurple text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-deepPurple/50 border border-white/20">
         <i class="fa-solid fa-envelope text-3xl"></i>
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Get In Touch</h2>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Get In Touch</h2>
       <p class="text-gray-300 mb-10 text-lg md:text-xl font-medium leading-relaxed">I'm currently looking for new opportunities. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!</p>
       <a href="mailto:hello@example.com" class="inline-flex items-center gap-3 bg-gradient-to-r from-hotPink to-deepPurple text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-hotPink/40 hover:scale-105 transition-all shadow-lg shadow-hotPink/25 border border-white/10">
         Say Hello <i class="fa-solid fa-paper-plane"></i>
@@ -370,6 +466,33 @@
 
   <!-- Typewriter Script -->
   <script>
+    // Skills Tab Functionality
+    function filterSkills(category) {
+        const tabs = document.querySelectorAll('.skill-tab');
+        tabs.forEach(tab => {
+            if (tab.dataset.category === category) {
+                tab.classList.remove('border-white/20', 'bg-white/5', 'text-gray-300', 'hover:bg-white/10', 'hover:text-white');
+                tab.classList.add('bg-gradient-to-r', 'from-hotPink', 'to-deepPurple', 'text-white', 'shadow-lg', 'shadow-hotPink/25', 'border-transparent');
+            } else {
+                tab.classList.add('border-white/20', 'bg-white/5', 'text-gray-300', 'hover:bg-white/10', 'hover:text-white');
+                tab.classList.remove('bg-gradient-to-r', 'from-hotPink', 'to-deepPurple', 'text-white', 'shadow-lg', 'shadow-hotPink/25', 'border-transparent');
+            }
+        });
+
+        const cards = document.querySelectorAll('.skill-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'flex';
+                card.classList.remove('animate-fade-in-up');
+                void card.offsetWidth; // Trigger reflow
+                card.classList.add('animate-fade-in-up');
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('animate-fade-in-up');
+            }
+        });
+    }
+
     const words = ["Leadership.", "Collaboration.", "Design.", "Innovation."];
     let i = 0;
     let j = 0;
@@ -405,7 +528,79 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(type, 1000);
+        filterSkills('development'); // Default tab
     });
+
+    // Smooth scrolling and precise top alignment for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                
+                // Calculate navbar height dynamically to prevent overlap
+                const navbar = document.querySelector('nav');
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                
+                // Get element's absolute position minus the fixed navbar height
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    });
+
+    // Active Navigation Link Highlight on Scroll
+    function updateActiveNavLink() {
+        const scrollPosition = window.scrollY;
+        const navbar = document.querySelector('nav');
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+        const offset = navbarHeight + 100; // Extra buffer to trigger slightly before the section hits the exact top
+
+        let currentSectionId = '';
+        const sections = document.querySelectorAll('section[id]');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop - offset && scrollPosition < sectionTop + sectionHeight - offset) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+
+        // Force the last section to be active if scrolled to the absolute bottom of the page
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+             currentSectionId = sections[sections.length - 1].getAttribute('id');
+        }
+
+        const navLinks = document.querySelectorAll('nav ul a[href^="#"], #mobile-menu a[href^="#"]');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
+                link.classList.remove('text-gray-300');
+                link.classList.add('text-hotPink');
+            } else {
+                link.classList.remove('text-hotPink');
+                link.classList.add('text-gray-300');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNavLink);
+    document.addEventListener('DOMContentLoaded', updateActiveNavLink);
   </script>
 </body>
 
