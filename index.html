@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind Configuration for custom styles -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hotPink: '#ff1493',
+            deepPurple: '#9333ea',
+            darkBg: '#050505',
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'blob': 'blob 7s infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-darkBg text-white min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- Ambient Background Blobs -->
+  <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none flex justify-center items-center">
+    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-deepPurple/30 blur-[120px] animate-blob"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-hotPink/20 blur-[120px] animate-blob" style="animation-delay: 2s;"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="bg-white/5 fixed w-full top-0 z-50 shadow-lg backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex justify-between items-center w-full">
+      <div class="text-2xl font-bold text-white tracking-wider">
+        <a href="index.html">Faize<span class="text-hotPink">.</span></a>
+      </div>
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6">
+        <li><a href="#hero" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Home</a></li>
+        <li><a href="#about" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">About</a></li>
+        <li><a href="#skills" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Skills</a></li>
+        <li><a href="#projects" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Projects</a></li>
+        <li><a href="#contact" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Contact</a></li>
+      </ul>
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-gray-300 hover:text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden fixed top-[81px] left-0 w-full bg-black/80 backdrop-blur-lg border-b border-white/10 z-40 shadow-xl">
+    <ul class="flex flex-col space-y-4 p-6 text-center text-white">
+      <li><a href="#hero" class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Home</a></li>
+      <li><a href="#about" class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">About</a></li>
+      <li><a href="#skills" class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Skills</a></li>
+      <li><a href="#projects" class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Projects</a></li>
+      <li><a href="#contact" class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative z-10 min-h-screen flex flex-col justify-center items-center text-center p-6 pt-24 opacity-0 animate-fade-in-up">
+    <div class="mb-6 inline-block px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-gray-300 text-sm font-medium tracking-wide">
+      <i class="fa-solid fa-code text-deepPurple"></i> Software Developer
+    </div>
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-white">
+      Hello, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Faijah</span>
+    </h1>
+    <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
+      A passionate developer crafting beautiful, functional, and user-centric web experiences.
+    </p>
+    <div class="flex space-x-4">
+      <a href="#projects" class="bg-gradient-to-r from-hotPink to-deepPurple text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg shadow-hotPink/25 hover:shadow-hotPink/40 transition-all transform hover:-translate-y-1">
+        View My Work
+      </a>
+      <a href="#contact" class="border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 px-8 py-3 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1">
+        Contact Me
+      </a>
+    </div>
+  </section>
+
+   <!-- About Content -->
+  <section id="about" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+    <div class="max-w-4xl mx-auto flex flex-col items-center text-center bg-white/5 backdrop-blur-lg border border-white/10 p-10 md:p-16 rounded-[2rem] shadow-2xl">
+      <div class="w-32 h-32 bg-gradient-to-br from-hotPink to-deepPurple text-white rounded-full flex items-center justify-center mb-8 shadow-lg shadow-deepPurple/50 border border-white/20">
+         <i class="fa-solid fa-user-astronaut text-5xl"></i>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-white">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Me</span></h2>
+      <p class="text-lg md:text-xl leading-relaxed max-w-3xl font-medium text-gray-300">
+        I am a dedicated software engineer with a strong focus on creating clean, elegant, and efficient solutions. I love turning complex problems into simple, beautiful, and intuitive designs. When I'm not coding, you'll find me exploring new technologies and continuously learning to improve my craft. My goal is to build digital products that make a real difference.
+      </p>
+    </div>
+  </section>
+
+    <!-- Skills Content -->
+  <section id="skills" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+    <div class="max-w-5xl mx-auto text-center w-full">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-16 text-white">Technical <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Skills</span></h2>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-hotPink/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
+          <i class="fa-brands fa-html5 text-5xl mb-4 text-hotPink group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-xl text-white">HTML & CSS</h3>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-deepPurple/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
+          <i class="fa-brands fa-js text-5xl mb-4 text-[#f7df1e] group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-xl text-white">JavaScript</h3>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-hotPink/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
+          <i class="fa-solid fa-wind text-5xl mb-4 text-[#38bdf8] group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-xl text-white">Tailwind CSS</h3>
+        </div>
+        <div class="bg-white/5 backdrop-blur-md p-8 rounded-2xl border border-white/10 hover:border-deepPurple/50 transition-all duration-300 shadow-xl transform hover:-translate-y-2 flex flex-col items-center group hover:bg-white/10">
+          <i class="fa-brands fa-react text-5xl mb-4 text-[#61dafb] group-hover:scale-110 transition-transform"></i>
+          <h3 class="font-bold text-xl text-white">React</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Content -->
+  <section id="projects" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+    <div class="max-w-6xl mx-auto w-full">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-white">Featured <span class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Project</span></h2>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto font-medium">A quick glimpse into my recent work. Explore this featured application to see my technical skills in action.</p>
+      </div>
+
+      <div class="group relative flex flex-col lg:flex-row bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_40px_-10px_rgba(147,51,234,0.4)] transition-all duration-300 max-w-5xl mx-auto mb-12">
+        <div class="w-full lg:w-1/2 h-72 lg:h-auto overflow-hidden bg-black/50 relative border-b lg:border-b-0 lg:border-r border-white/10">
+            <img src="https://placehold.co/800x600/0f172a/8b5cf6?text=AI+Tutor+System" alt="AI Tutor System" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent lg:hidden"></div>
+        </div>
+        <div class="w-full lg:w-1/2 p-8 md:p-10 flex flex-col justify-center text-left">
+            <h3 class="text-3xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">Agape Blossoms</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed font-medium">An AI-powered tutoring platform featuring automated quiz generation, student competency tracking, and RAG integration for highly personalized learning pathways.</p>
+            <div class="flex flex-wrap gap-2 mb-8">
+                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">React</span>
+                <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold border border-blue-500/20">Firebase</span>
+                <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold border border-cyan-500/20">Tailwind CSS</span>
+                <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-semibold border border-indigo-500/20">Python</span>
+            </div>
+            <div class="flex flex-wrap gap-4 mt-auto">
+                <a href="#" class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                <a href="#" class="px-5 py-2.5 bg-white/10 text-white rounded-lg font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"><i class="fa-brands fa-github text-lg"></i> GitHub</a>
+            </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="projects.html" class="inline-flex items-center gap-3 border border-white/20 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 shadow-xl">
+          Explore more of my works <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section id="contact" class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-24 pb-20 px-6 opacity-0 animate-fade-in-up">
+    <div class="max-w-2xl mx-auto text-center bg-white/5 backdrop-blur-lg p-12 rounded-[2rem] shadow-2xl border border-white/10">
+      <div class="w-20 h-20 bg-gradient-to-br from-hotPink to-deepPurple text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-deepPurple/50 border border-white/20">
+        <i class="fa-solid fa-envelope text-3xl"></i>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Get In Touch</h2>
+      <p class="text-gray-300 mb-10 text-lg md:text-xl font-medium leading-relaxed">I'm currently looking for new opportunities. Whether you have a question, a project in mind, or just want to say hi, I'll try my best to get back to you!</p>
+      <a href="mailto:hello@example.com" class="inline-flex items-center gap-3 bg-gradient-to-r from-hotPink to-deepPurple text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-hotPink/40 hover:scale-105 transition-all shadow-lg shadow-hotPink/25 border border-white/10">
+        Say Hello <i class="fa-solid fa-paper-plane"></i>
+      </a>
+    </div>
+  </section>
+
+
+</body>
+
+</html>
