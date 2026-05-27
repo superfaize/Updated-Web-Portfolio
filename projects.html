@@ -49,57 +49,24 @@
             style="animation-delay: 2s;"></div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="bg-white/5 fixed w-full top-0 z-50 shadow-lg backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex justify-between items-center w-full">
-            <div class="text-2xl font-bold text-white tracking-wider">
-                <a href="index.html">Faize<span class="text-hotPink">.</span></a>
-            </div>
-            <ul class="hidden md:flex space-x-6">
-                <li><a href="index.html#hero" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Home</a>
-                </li>
-                <li><a href="index.html#about" class="text-gray-300 hover:text-hotPink transition-colors font-semibold">About</a>
-                </li>
-                <li><a href="index.html#skills"
-                        class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Skills</a></li>
-                <li><a href="projects.html" class="text-hotPink transition-colors font-semibold">Projects</a></li>
-                <li><a href="index.html#contact"
-                        class="text-gray-300 hover:text-hotPink transition-colors font-semibold">Contact</a></li>
-            </ul>
-            <button class="md:hidden text-gray-300 hover:text-white focus:outline-none"
-                onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                <i class="fa-solid fa-bars text-2xl"></i>
+    <!-- Top Bar (Back Button) -->
+    <div class="fixed w-full top-0 z-50 pointer-events-none">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex justify-start items-center w-full">
+            <button onclick="history.back()"
+                class="pointer-events-auto inline-flex items-center justify-center w-12 h-12 bg-white/5 border border-white/20 rounded-full shadow-lg backdrop-blur-md hover:bg-white hover:border-white hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] hover:-translate-x-1 transition-all duration-300 group"
+                title="Go Back">
+                <i
+                    class="fa-solid fa-arrow-left text-xl text-gray-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-hotPink group-hover:to-deepPurple transition-all duration-300"></i>
             </button>
         </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="hidden md:hidden fixed top-[81px] left-0 w-full bg-black/80 backdrop-blur-lg border-b border-white/10 z-40 shadow-xl">
-        <ul class="flex flex-col space-y-4 p-6 text-center text-white">
-            <li><a href="index.html#hero"
-                    class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Home</a>
-            </li>
-            <li><a href="index.html#about"
-                    class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">About</a>
-            </li>
-            <li><a href="index.html#skills"
-                    class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Skills</a>
-            </li>
-            <li><a href="projects.html" class="block text-hotPink transition-colors font-semibold text-lg">Projects</a>
-            </li>
-            <li><a href="index.html#contact"
-                    class="block text-gray-300 hover:text-hotPink transition-colors font-semibold text-lg">Contact</a>
-            </li>
-        </ul>
     </div>
 
     <!-- Projects Content -->
-        <main class="relative z-10 flex-grow pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
+    <main class="relative z-10 flex-grow pt-12 pb-16 px-6 opacity-0 animate-fade-in-up">
         <div class="max-w-6xl mx-auto">
 
             <!-- Page Header & Intro -->
-                <div class="text-center mb-12 mt-4">
+            <div class="text-center mb-12 mt-4">
                 <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
                     My <span
                         class="text-transparent bg-clip-text bg-gradient-to-r from-hotPink to-deepPurple">Projects</span>
@@ -111,374 +78,499 @@
                 </p>
             </div>
 
-            <!-- 1. FEATURED PROJECTS -->
-            <section class="mb-24">
-                    <div class="flex items-center gap-4 mb-6">
-                    <div class="h-[2px] w-12 bg-gradient-to-r from-blue-500 to-purple-500 hidden md:block"></div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-white">Featured <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Projects</span>
-                    </h2>
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center gap-3 mb-16 mt-8">
+                <button onclick="filterProjects('all')" data-category="all"
+                    class="project-tab px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all border border-transparent bg-gradient-to-r from-hotPink to-deepPurple text-white shadow-lg shadow-hotPink/25">
+                    <i class="fa-solid fa-border-all mr-2"></i>All Projects
+                </button>
+                <button onclick="filterProjects('web')" data-category="web"
+                    class="project-tab px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+                    <i class="fa-solid fa-code mr-2"></i>Full-Stack & Web Systems
+                </button>
+                <button onclick="filterProjects('design')" data-category="design"
+                    class="project-tab px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+                    <i class="fa-solid fa-pen-nib mr-2"></i>UI/UX & Graphic Design
+                </button>
+                <button onclick="filterProjects('video')" data-category="video"
+                    class="project-tab px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all border border-white/20 bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white">
+                    <i class="fa-solid fa-video mr-2"></i>Video Production
+                </button>
+            </div>
 
+            <!-- Projects Wrapper -->
+            <div id="projects-wrapper" class="min-h-[50vh]">
+
+                <!-- FULL-STACK & WEB SYSTEMS -->
+                <div class="project-category opacity-0 animate-fade-in-up" data-category="web">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+
+                        <!-- Agape Blossoms -->
+                        <div
+                            class="group relative flex flex-col bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_40px_-10px_rgba(147,51,234,0.4)] hover:-translate-y-2 transition-all duration-300">
+                            <div class="w-full h-72 overflow-hidden bg-black/50 relative border-b border-white/10">
+                                <img src="assets/images/homepage/agape_coverphoto.png" alt="Agape Blossoms"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent lg:hidden">
+                                </div>
+                            </div>
+                            <div class="w-full p-8 md:p-10 flex flex-col flex-grow">
+                                <h3
+                                    class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-hotPink to-pink-500 bg-[length:200%_auto] bg-left group-hover:bg-right mb-4 group-hover:brightness-110 transition-all duration-700 ease-in-out">
+                                    Agape Blossoms: <br>An E-Commerce Platform</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed font-medium">
+                                    An academic project delivering a complete online storefront for a handmade crafts
+                                    business. It transforms basic shopping mechanics into a seamless user experience,
+                                    bridging the gap between web systems coursework and real-world client needs.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span
+                                        class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">HTML</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold border border-blue-500/20">CSS</span>
+                                    <span
+                                        class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold border border-cyan-500/20">JavaScript</span>
+                                    <span
+                                        class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-semibold border border-indigo-500/20">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">MySql</span>
+                                </div>
+                                <div class="flex flex-wrap gap-4 mt-auto">
+                                    <a href="https://www.figma.com/proto/wZwenRMv5abh3BmyJZC9HV/AGAPE-BLOSSOMS-DESKTOP-MOCKUP-FINAL?node-id=1-4&t=aksjdrpm0ADySRjj-1&starting-point-node-id=1%3A4"
+                                        class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">Design
+                                        Prototype <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                                    <a href="#"
+                                        class="px-5 py-2.5 bg-white/10 text-white rounded-lg font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"><i
+                                            class="fa-brands fa-github text-lg"></i> GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Certigo -->
+                        <div
+                            class="group relative flex flex-col bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.4)] hover:-translate-y-2 transition-all duration-300">
+                            <div class="w-full h-72 overflow-hidden bg-black/50 relative border-b border-white/10">
+                                <img src="assets/images/projects/certigo_coverphoto.png" alt="FinTech Analytics"
+                                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent">
+                                </div>
+                            </div>
+                            <div class="w-full p-8 md:p-10 flex flex-col flex-grow">
+                                <h3
+                                    class="text-3xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
+                                    Certigo</h3>
+                                <p class="text-gray-300 mb-6 leading-relaxed font-medium">
+                                    CERTIGO is a web-based application that digitizes the request and approval process
+                                    for Barangay Indigency Certificates in Barangay Balangkas, providing an online
+                                    tracking portal for citizens and an organized management dashboard for barangay
+                                    personnel to improve efficiency and reduce paperwork.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span
+                                        class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">HTML</span>
+                                    <span
+                                        class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold border border-blue-500/20">CSS</span>
+                                    <span
+                                        class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold border border-cyan-500/20">JavaScript</span>
+                                    <span
+                                        class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-semibold border border-indigo-500/20">PHP</span>
+                                    <span
+                                        class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">MySql</span>
+                                </div>
+                                <div class="flex flex-wrap gap-4 mt-auto">
+                                    <a href="#"
+                                        class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">Design
+                                        Prototype <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
+                                    <a href="#"
+                                        class="px-5 py-2.5 bg-white/10 text-white rounded-lg font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"><i
+                                            class="fa-brands fa-github text-lg"></i> GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    <!-- Featured Card 1 -->
-                    <div
-                        class="group relative flex flex-col bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_40px_-10px_rgba(147,51,234,0.4)] hover:-translate-y-2 transition-all duration-300">
-                        <div class="w-full h-72 overflow-hidden bg-black/50 relative border-b border-white/10">
-                            <img src="https://placehold.co/800x600/0f172a/8b5cf6?text=AI+Tutor+System"
-                                alt="AI Tutor System"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <!-- UI/UX & GRAPHIC DESIGN -->
+                <div class="project-category opacity-0 animate-fade-in-up" data-category="design">
+                    <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
+
+                        <!-- Paagi 1 -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-deepPurple/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/paagi-1.jpg')">
+                            <img src="assets/images/projects/paagi-1.jpg" alt="Paagi 1"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent lg:hidden">
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Paagi 1</h4>
                             </div>
                         </div>
-                        <div class="w-full p-8 md:p-10 flex flex-col flex-grow">
-                            <h3 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-hotPink to-pink-500 bg-[length:200%_auto] bg-left group-hover:bg-right mb-4 group-hover:brightness-110 transition-all duration-700 ease-in-out">
-                                Agape Blossoms</h3>
-                            <p class="text-gray-300 mb-6 leading-relaxed font-medium">An AI-powered tutoring platform
-                                featuring automated quiz generation, student competency tracking, and RAG integration
-                                for highly personalized learning pathways.</p>
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span
-                                    class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">React</span>
-                                <span
-                                    class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold border border-blue-500/20">Firebase</span>
-                                <span
-                                    class="px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-xs font-semibold border border-cyan-500/20">Tailwind
-                                    CSS</span>
-                                <span
-                                    class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs font-semibold border border-indigo-500/20">Python</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4 mt-auto">
-                                <a href="#"
-                                    class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">Live
-                                    Demo <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
-                                <a href="#"
-                                    class="px-5 py-2.5 bg-white/10 text-white rounded-lg font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"><i
-                                        class="fa-brands fa-github text-lg"></i> GitHub</a>
-                                <a href="#"
-                                    class="px-5 py-2.5 text-gray-400 hover:text-white font-semibold hover:underline underline-offset-4 transition-all flex items-center gap-2 ml-auto">Case
-                                    Study <i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Featured Card 2 -->
-                    <div
-                        class="group relative flex flex-col bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.4)] hover:-translate-y-2 transition-all duration-300">
-                        <div class="w-full h-72 overflow-hidden bg-black/50 relative border-b border-white/10">
-                            <img src="https://placehold.co/800x600/0f172a/3b82f6?text=FinTech+Analytics"
-                                alt="FinTech Analytics"
-                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <!-- Paagi 2 -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/paagi-2.jpg')">
+                            <img src="assets/images/projects/paagi-2.jpg" alt="Paagi 2"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent">
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Paagi 2</h4>
                             </div>
                         </div>
-                        <div class="w-full p-8 md:p-10 flex flex-col flex-grow">
-                            <h3
-                                class="text-3xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-                                FinTech Analytics</h3>
-                            <p class="text-gray-300 mb-6 leading-relaxed font-medium">A comprehensive financial
-                                analytics dashboard built to track real-time transactions, manage crypto portfolios, and
-                                visualize investment metrics beautifully.</p>
-                            <div class="flex flex-wrap gap-2 mb-8">
-                                <span
-                                    class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-semibold border border-purple-500/20">Next.js</span>
-                                <span
-                                    class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-semibold border border-blue-500/20">TypeScript</span>
-                                <span
-                                    class="px-3 py-1 bg-teal-500/20 text-teal-300 rounded-full text-xs font-semibold border border-teal-500/20">Prisma</span>
-                            </div>
-                            <div class="flex flex-wrap gap-4 mt-auto">
-                                <a href="#"
-                                    class="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-bold shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">Live
-                                    Demo <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
-                                <a href="#"
-                                    class="px-5 py-2.5 bg-white/10 text-white rounded-lg font-bold border border-white/20 hover:bg-white/20 transition-all flex items-center gap-2"><i
-                                        class="fa-brands fa-github text-lg"></i> GitHub</a>
-                                <a href="#"
-                                    class="px-5 py-2.5 text-gray-400 hover:text-white font-semibold hover:underline underline-offset-4 transition-all flex items-center gap-2 ml-auto">Case
-                                    Study <i class="fa-solid fa-arrow-right"></i></a>
+
+                        <!-- Poster 1 -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/poster1.jpg')">
+                            <img src="assets/images/projects/poster1.jpg" alt="Poster 1"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Poster 1</h4>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- 2. ACADEMIC PROJECTS -->
-            <section class="mb-24">
-                    <div class="flex items-center gap-4 mb-6">
-                    <div class="h-[2px] w-12 bg-white/20 hidden md:block"></div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">Academic <span
-                            class="text-blue-400">Projects</span></h2>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Academic Item -->
-                    <div
-                        class="bg-white/5 backdrop-blur-sm rounded-xl p-7 border border-white/10 hover:border-white/30 hover:-translate-y-1 transition-all hover:bg-white/10">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-white leading-tight">Library Management System</h3>
-                            <span
-                                class="text-[10px] uppercase tracking-wider font-bold text-blue-400 bg-blue-500/10 px-2 py-1 rounded whitespace-nowrap ml-3">Year
-                                2</span>
+                        <!-- SPCC -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/SPCC.jpg')">
+                            <img src="assets/images/projects/SPCC.jpg" alt="SPCC"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    SPCC</h4>
+                            </div>
                         </div>
-                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">A robust desktop application developed for
-                            managing library inventory, book checkouts, member returns, and automated fine calculations.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span
-                                class="text-xs font-medium text-gray-300 px-2.5 py-1 bg-black/30 rounded border border-white/5">Java</span>
-                            <span
-                                class="text-xs font-medium text-gray-300 px-2.5 py-1 bg-black/30 rounded border border-white/5">MySQL</span>
-                        </div>
-                    </div>
-                    <!-- Academic Item -->
-                    <div
-                        class="bg-white/5 backdrop-blur-sm rounded-xl p-7 border border-white/10 hover:border-white/30 hover:-translate-y-1 transition-all hover:bg-white/10">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-white leading-tight">Student Portal</h3>
-                            <span
-                                class="text-[10px] uppercase tracking-wider font-bold text-purple-400 bg-purple-500/10 px-2 py-1 rounded whitespace-nowrap ml-3">Year
-                                3</span>
-                        </div>
-                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">Web-based portal for students to view
-                            grades, download course materials, and register for upcoming semester classes securely.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span
-                                class="text-xs font-medium text-gray-300 px-2.5 py-1 bg-black/30 rounded border border-white/5">PHP</span>
-                            <span
-                                class="text-xs font-medium text-gray-300 px-2.5 py-1 bg-black/30 rounded border border-white/5">Bootstrap</span>
-                        </div>
-                    </div>
-                    <!-- Academic Item -->
-                    <div
-                        class="bg-white/5 backdrop-blur-sm rounded-xl p-7 border border-white/10 hover:border-white/30 hover:-translate-y-1 transition-all hover:bg-white/10">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-xl font-bold text-white leading-tight">Sorting Visualizer</h3>
-                            <span
-                                class="text-[10px] uppercase tracking-wider font-bold text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded whitespace-nowrap ml-3">Year
-                                1</span>
-                        </div>
-                        <p class="text-sm text-gray-400 mb-6 leading-relaxed">Interactive tool that graphically
-                            demonstrates how different algorithms (Bubble, Merge, Quick) sort arrays in real-time.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span
-                                class="text-xs font-medium text-gray-300 px-2.5 py-1 bg-black/30 rounded border border-white/5">JavaScript</span>
-                            <span
-                                class="text-xs font-medium text-gray-300 px-2.5 py-1 bg-black/30 rounded border border-white/5">HTML/CSS</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <!-- 3. CREATIVE WORKS -->
-            <section class="mb-24">
-                    <div class="flex items-center gap-4 mb-6">
-                    <div class="h-[2px] w-12 bg-white/20 hidden md:block"></div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">Creative <span
-                            class="text-purple-400">Works</span></h2>
-                </div>
-
-                <!-- Masonry Grid -->
-                <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-
-                    <!-- Gallery Item / POSTER-->
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- STS Photojourn -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/sts-photojourn.jpg')">
+                            <img src="assets/images/projects/sts-photojourn.jpg" alt="STS Photojourn"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    STS Photojourn</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- Women -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/women.jpg')">
+                            <img src="assets/images/projects/women.jpg" alt="Women"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Women</h4>
+                            </div>
                         </div>
-                    </div>
 
-                     <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- Anniv Poster 2 -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/anniv-poster-2.jpg')">
+                            <img src="assets/images/projects/anniv-poster-2.jpg" alt="Anniv Poster 2"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Anniv Poster 2</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- Campers Elijah -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-deepPurple/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/campers-elijah.jpg')">
+                            <img src="assets/images/projects/campers-elijah.jpg" alt="Campers Elijah"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Campers Elijah</h4>
+                            </div>
                         </div>
-                    </div>
 
-                     <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- ELICCM Pubmat -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/eliccm-pubmat.jpg')">
+                            <img src="assets/images/projects/eliccm-pubmat.jpg" alt="ELICCM Pubmat"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    ELICCM Pubmat</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- Ethics 1 -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/ethics-1.jpg')">
+                            <img src="assets/images/projects/ethics-1.jpg" alt="Ethics 1"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Ethics 1</h4>
+                            </div>
                         </div>
-                    </div>
 
-                     <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
+                        <!-- Ethics 2 -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/ethics-2.jpg')">
+                            <img src="assets/images/projects/ethics-2.jpg" alt="Ethics 2"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Ethics 2</h4>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('assets/images/images.jpg')">
-                        <img src="assets/images/images.jpg" alt="Event Poster"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                University Tech Fair</h4>
-                            <p
-                                class="text-purple-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Poster / Pubmat</p>
-                        </div>
-                    </div>
 
-                    <!-- Gallery Item -->
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('https://placehold.co/800x600/1a1a2e/3b82f6?text=Video+Thumbnail')">
-                        <img src="https://placehold.co/800x600/1a1a2e/3b82f6?text=Video+Thumbnail" alt="Video Editing"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 text-white/50 group-hover:text-white transition-colors duration-300">
-                            <i
-                                class="fa-solid fa-play text-4xl drop-shadow-lg group-hover:scale-125 transition-transform duration-300"></i>
-                        </div>
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                Hackathon Highlights</h4>
-                            <p
-                                class="text-blue-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Video Editing</p>
-                        </div>
-                    </div>
-                    <!-- Gallery Item -->
-                    <div class="relative group overflow-hidden rounded-xl cursor-pointer break-inside-avoid border border-white/10"
-                        onclick="openLightbox('https://placehold.co/600x600/1a1a2e/0ea5e9?text=Social+Media')">
-                        <img src="https://placehold.co/600x600/1a1a2e/0ea5e9?text=Social+Media"
-                            alt="Social Media Graphic"
-                            class="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                            <h4
-                                class="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                Instagram Campaign</h4>
-                            <p
-                                class="text-cyan-300 text-sm font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                                Graphic Design</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 4. CLIENT WORK -->
-            <section>
-                    <div class="flex items-center gap-4 mb-6">
-                    <div class="h-[2px] w-12 bg-white/20 hidden md:block"></div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white">Client <span
-                            class="text-indigo-400">Work</span></h2>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Client Item -->
-                    <div
-                        class="group flex flex-col bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 hover:border-indigo-500/50 hover:-translate-y-2 hover:shadow-[0_10px_30px_-10px_rgba(99,102,241,0.3)] transition-all duration-300">
-                        <div class="h-40 overflow-hidden bg-black/40">
-                            <img src="https://placehold.co/600x400/0f172a/6366f1?text=Brand+Identity"
-                                alt="Client Project"
-                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <p class="text-[10px] uppercase tracking-wider font-bold text-indigo-400 mb-2">Freelance •
-                                Brand Identity</p>
-                            <h3 class="text-lg font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">
-                                TechNova Rebrand</h3>
-                            <p class="text-sm text-gray-400 mb-6 line-clamp-3">Complete brand overhaul encompassing logo
-                                design, typography, color palette selection, and corporate stationary.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2 border-t border-white/5">
-                                <span class="text-xs font-medium bg-white/10 px-2 py-1 rounded text-gray-300"><i
-                                        class="fa-solid fa-pen-nib text-indigo-400 mr-1"></i> Illustrator</span>
-                                <span class="text-xs font-medium bg-white/10 px-2 py-1 rounded text-gray-300"><i
-                                        class="fa-solid fa-wand-magic-sparkles text-blue-400 mr-1"></i> Photoshop</span>
+                        <!-- Nonoy Profile -->
+                        <div class="w-[46%] sm:w-[30%] md:w-[22%] lg:w-[18%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/nonoy-profile.jpg')">
+                            <img src="assets/images/projects/nonoy-profile.jpg" alt="Nonoy Profile"
+                                class="w-full h-auto object-cover aspect-[1/1.414] group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Nonoy Profile</h4>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
+                    <!-- LANDSCAPE IMAGES -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
+
+                        <!-- RVA Lesson 5 -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-deepPurple/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/rvalesson5.jpg')">
+                            <img src="assets/images/projects/rvalesson5.jpg" alt="RVA Lesson 5"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    RVA Lesson 5</h4>
+                            </div>
+                        </div>
+
+                        <!-- SS -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/ss.jpg')">
+                            <img src="assets/images/projects/ss.jpg" alt="SS"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    SS</h4>
+                            </div>
+                        </div>
+
+                        <!-- BACK -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/BACK.jpg')">
+                            <img src="assets/images/projects/BACK.jpg" alt="BACK"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    BACK</h4>
+                            </div>
+                        </div>
+
+                        <!-- HBD Cher 1 -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-deepPurple/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/hbd-cher-1.jpg')">
+                            <img src="assets/images/projects/hbd-cher-1.jpg" alt="HBD Cher 1"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    HBD Cher 1</h4>
+                            </div>
+                        </div>
+
+                        <!-- HBD Cher 2 -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/hbd-cher-2.jpg')">
+                            <img src="assets/images/projects/hbd-cher-2.jpg" alt="HBD Cher 2"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    HBD Cher 2</h4>
+                            </div>
+                        </div>
+
+                        <!-- HBD Edgar -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/hbd-edgar.jpg')">
+                            <img src="assets/images/projects/hbd-edgar.jpg" alt="HBD Edgar"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    HBD Edgar</h4>
+                            </div>
+                        </div>
+
+                        <!-- Hell Touch -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/helltouch.jpg')">
+                            <img src="assets/images/projects/helltouch.jpg" alt="Hell Touch"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Hell Touch</h4>
+                            </div>
+                        </div>
+
+                        <!-- Menu Arvie Tarp 1 -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-deepPurple/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/menu-arvie-tarp-1.jpg')">
+                            <img src="assets/images/projects/menu-arvie-tarp-1.jpg" alt="Menu Arvie Tarp 1"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Menu Arvie Tarp 1</h4>
+                            </div>
+                        </div>
+
+                        <!-- Menu Arvie Tarp 2 -->
+                        <div class="group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/menu-arvie-tarp-2.jpg')">
+                            <img src="assets/images/projects/menu-arvie-tarp-2.jpg" alt="Menu Arvie Tarp 2"
+                                class="w-full h-auto object-cover aspect-video group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Menu Arvie Tarp 2</h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- SQUARE IMAGES -->
+                    <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
+
+                        <!-- RaketPH 1 -->
+                        <div class="w-full sm:w-[46%] md:w-[30%] lg:w-[22%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-deepPurple/50 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/raketph-1.jpg')">
+                            <img src="assets/images/projects/raketph-1.jpg" alt="RaketPH 1"
+                                class="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    RaketPH 1</h4>
+                            </div>
+                        </div>
+
+                        <!-- RaketPH 2 -->
+                        <div class="w-full sm:w-[46%] md:w-[30%] lg:w-[22%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-hotPink/50 hover:shadow-[0_0_20px_rgba(255,20,147,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/raketph-2.jpg')">
+                            <img src="assets/images/projects/raketph-2.jpg" alt="RaketPH 2"
+                                class="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    RaketPH 2</h4>
+                            </div>
+                        </div>
+
+                        <!-- RaketPH 6 -->
+                        <div class="w-full sm:w-[46%] md:w-[30%] lg:w-[22%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-blue-500/50 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/raketph-6.jpg')">
+                            <img src="assets/images/projects/raketph-6.jpg" alt="RaketPH 6"
+                                class="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    RaketPH 6</h4>
+                            </div>
+                        </div>
+
+                        <!-- Val Chess Logo -->
+                        <div class="w-full sm:w-[46%] md:w-[30%] lg:w-[22%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-green-500/50 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/val-chess-logo.jpg')">
+                            <img src="assets/images/projects/val-chess-logo.jpg" alt="Val Chess Logo"
+                                class="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Val Chess Logo</h4>
+                            </div>
+                        </div>
+
+                        <!-- Blazing -->
+                        <div class="w-full sm:w-[46%] md:w-[30%] lg:w-[22%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/blazing.jpg')">
+                            <img src="assets/images/projects/blazing.jpg" alt="Blazing"
+                                class="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Blazing</h4>
+                            </div>
+                        </div>
+
+                        <!-- Blazing 1 -->
+                        <div class="w-full sm:w-[46%] md:w-[30%] lg:w-[22%] group relative overflow-hidden rounded-xl cursor-pointer border border-white/10 hover:border-pink-500/50 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300"
+                            onclick="openLightbox('assets/images/projects/blazing-1.jpg')">
+                            <img src="assets/images/projects/blazing-1.jpg" alt="Blazing 1"
+                                class="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                                <h4
+                                    class="text-white font-bold text-sm translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                    Blazing 1</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- Closes Design Category -->
+
+                <!-- VIDEO PRODUCTION -->
+                <div class="project-category opacity-0 animate-fade-in-up" data-category="video">
+                    <div
+                        class="flex flex-col items-center justify-center py-20 text-gray-500 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/5 border-dashed">
+                        <i class="fa-solid fa-video text-5xl mb-4 text-gray-600"></i>
+                        <p class="text-xl font-medium">Video projects coming soon...</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </main>
 
@@ -534,6 +626,39 @@
             if (e.key === 'Escape' && !document.getElementById('lightbox').classList.contains('hidden')) {
                 closeLightbox();
             }
+        });
+
+        // Projects Filter Tab Logic
+        function filterProjects(category) {
+            // Update tab button styles
+            const tabs = document.querySelectorAll('.project-tab');
+            tabs.forEach(tab => {
+                if (tab.dataset.category === category) {
+                    tab.classList.remove('border-white/20', 'bg-white/5', 'text-gray-300', 'hover:bg-white/10', 'hover:text-white');
+                    tab.classList.add('bg-gradient-to-r', 'from-hotPink', 'to-deepPurple', 'text-white', 'shadow-lg', 'shadow-hotPink/25', 'border-transparent');
+                } else {
+                    tab.classList.add('border-white/20', 'bg-white/5', 'text-gray-300', 'hover:bg-white/10', 'hover:text-white');
+                    tab.classList.remove('bg-gradient-to-r', 'from-hotPink', 'to-deepPurple', 'text-white', 'shadow-lg', 'shadow-hotPink/25', 'border-transparent');
+                }
+            });
+
+            // Filter and animate groups
+            const categories = document.querySelectorAll('.project-category');
+            categories.forEach(group => {
+                if (category === 'all' || group.dataset.category === category) {
+                    group.style.display = 'block';
+                    group.classList.remove('animate-fade-in-up');
+                    void group.offsetWidth; // Trigger layout reflow
+                    group.classList.add('animate-fade-in-up');
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize 'All' tab by default
+        document.addEventListener("DOMContentLoaded", function () {
+            filterProjects('all');
         });
     </script>
 
