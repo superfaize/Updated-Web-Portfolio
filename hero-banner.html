@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Depth Hero Banner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-purple-950 font-sans antialiased text-white selection:bg-pink-500 selection:text-white">
+
+    <!-- HERO CONTAINER -->
+    <section class="relative min-h-screen overflow-hidden flex flex-col justify-center items-center bg-gradient-to-b from-purple-900 to-purple-950">
+        
+        <!-- LAYER 3: Navigation (Highest Z-Index) -->
+        <nav class="absolute top-6 left-0 right-0 mx-auto w-[95%] max-w-6xl z-30 backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-8 py-4 flex justify-between items-center shadow-xl">
+            <div class="text-2xl font-black tracking-widest text-pink-300 uppercase">
+                Vogue<span class="text-white">UI</span>
+            </div>
+            <ul class="hidden md:flex space-x-8 font-semibold text-sm tracking-wide">
+                <li><a href="#" class="hover:text-pink-300 transition-colors">Home</a></li>
+                <li><a href="#" class="hover:text-pink-300 transition-colors">Collections</a></li>
+                <li><a href="#" class="hover:text-pink-300 transition-colors">Editorials</a></li>
+            </ul>
+            <button class="bg-pink-500 hover:bg-pink-400 text-white px-6 py-2 rounded-full font-bold text-sm transition-all shadow-[0_0_15px_rgba(236,72,153,0.5)]">
+                Subscribe
+            </button>
+        </nav>
+
+        <!-- LAYER 1: Background Text (Lowest Z-Index) -->
+        <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
+            <h1 class="text-[25vw] md:text-[20rem] font-black uppercase text-pink-400 opacity-20 tracking-tighter leading-none whitespace-nowrap drop-shadow-2xl">
+                STYLE
+            </h1>
+        </div>
+
+        <!-- LAYER 2: Foreground Subject (Middle Z-Index) -->
+        <!-- Using a placeholder transparent PNG to demonstrate the overlapping cutout effect -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-[800px] flex justify-center pointer-events-none">
+            <img 
+                src="https://raw.githubusercontent.com/tailwindlabs/tailwindcss/master/.github/logo-dark.svg" 
+                onerror="this.src='https://freepngimg.com/thumb/model/26795-8-model-transparent-image.png'"
+                alt="Foreground Subject Cutout" 
+                class="w-[85%] md:w-full h-auto object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+            >
+        </div>
+
+        <!-- LAYER 3: Foreground Text/UI (Highest Z-Index) -->
+        <div class="absolute bottom-12 left-6 md:bottom-24 md:left-24 z-20 backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl p-6 md:p-8 max-w-sm shadow-2xl">
+            <div class="inline-block px-3 py-1 mb-4 rounded-full bg-pink-500/20 border border-pink-500/50 text-pink-300 text-xs font-bold uppercase tracking-wider">
+                New Edition
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-3 leading-tight">
+                Break the <span class="text-pink-300">Grid.</span>
+            </h2>
+            <p class="text-purple-100 text-sm md:text-base leading-relaxed mb-6">
+                Utilize absolute positioning and z-indexes to create stunning depth and immersive 3D layering in your web designs.
+            </p>
+            <button class="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-pink-300 hover:text-white transition-colors group">
+                Read the Article <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+        </div>
+
+    </section>
+</body>
+</html>

@@ -9,22 +9,34 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts for Kawaii Theme -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <!-- Tailwind Configuration for custom styles -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            bloodRed: '#8B0000',
-            crimson: '#B11226',
-            darkBg: '#050505',
-            surface: '#0F0F0F',
-            silver: '#C0C0C0',
-            chrome: '#F5F5F5',
+            softBg: '#FFFFFF',
+            cardBg: '#FFFFFF',
+            pastelPink: '#FF1493',
+            mintGreen: '#D8B4FE',
+            textMain: '#000000',
+            textLight: '#27272A',
+            accentPink: '#9333EA',
+            accentMint: '#FF1493'
+          },
+          fontFamily: {
+            sans: ['Quicksand', 'sans-serif'],
+            display: ['Fredoka', 'sans-serif'],
           },
           animation: {
             'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-            'blob': 'blob 7s infinite',
+            'blob': 'blob 10s infinite ease-in-out',
+            'float': 'float 3s ease-in-out infinite',
+            'wiggle': 'wiggle 1s ease-in-out infinite',
           },
           keyframes: {
             fadeInUp: {
@@ -32,9 +44,18 @@
               '100%': { opacity: '1', transform: 'translateY(0)' },
             },
             blob: {
-              '0%': { transform: 'translate(0px, 0px) scale(1)', opacity: '0.2' },
-              '50%': { transform: 'translate(20px, -20px) scale(1.05)', opacity: '0.4' },
-              '100%': { transform: 'translate(0px, 0px) scale(1)', opacity: '0.2' },
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
             }
           }
         }
@@ -43,314 +64,559 @@
   </script>
 </head>
 
-<body class="bg-darkBg text-white min-h-screen flex flex-col relative overflow-x-hidden">
+<body
+  class="bg-softBg text-textMain font-sans min-h-screen flex flex-col relative overflow-x-hidden selection:bg-pastelPink selection:text-white">
 
   <!-- Ambient Background Blobs -->
   <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none flex justify-center items-center">
-    <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-bloodRed/20 blur-[150px] animate-blob"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-crimson/10 blur-[150px] animate-blob" style="animation-delay: 3s;"></div>
+    <div class="parallax-wrapper absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw]" data-speed="-0.1">
+      <div class="w-full h-full rounded-full bg-pastelPink/30 blur-[100px] animate-blob"></div>
+    </div>
+    <div class="parallax-wrapper absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw]" data-speed="0.15">
+      <div class="w-full h-full rounded-full bg-mintGreen/30 blur-[100px] animate-blob" style="animation-delay: 3s;"></div>
+    </div>
   </div>
 
   <!-- Navbar -->
-  <nav class="bg-darkBg/80 fixed w-full top-0 z-50 backdrop-blur-md border-b border-white/5">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex justify-between items-center w-full">
-      <div class="text-2xl font-serif font-bold text-white tracking-widest uppercase">
-        Faize<span class="text-bloodRed">.</span>
+  <nav
+    class="bg-white/100 fixed top-6 left-0 right-0 mx-auto w-[95%] max-w-[1000px] z-50 backdrop-blur-md border-2 border-pastelPink rounded-2xl transition-all duration-300">
+    <div class="px-6 py-3 flex justify-between items-center w-full">
+      <div class="text-3xl font-display font-bold text-textMain tracking-wide">
+        Faize<span class="text-accentPink"><i class="fa-solid fa-paw text-xl ml-1"></i></span>
       </div>
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex space-x-6">
-        <li><a href="#hero" class="text-silver hover:text-chrome transition-colors font-medium text-sm tracking-widest uppercase">Home</a></li>
-        <li><a href="#about" class="text-silver hover:text-chrome transition-colors font-medium text-sm tracking-widest uppercase">About</a></li>
-        <li><a href="#skills" class="text-silver hover:text-chrome transition-colors font-medium text-sm tracking-widest uppercase">Skills</a></li>
-        <li><a href="#projects" class="text-silver hover:text-chrome transition-colors font-medium text-sm tracking-widest uppercase">Projects</a></li>
-        <li><a href="#contact" class="text-silver hover:text-chrome transition-colors font-medium text-sm tracking-widest uppercase">Contact</a></li>
+      <ul class="hidden md:flex space-x-4 items-center">
+        <li><a href="#hero"
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Home</a>
+        </li>
+        <li><a href="#about"
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">About</a>
+        </li>
+        <li><a href="#skills"
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Skills</a>
+        </li>
+        <li><a href="#projects"
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Projects</a>
+        </li>
+        <li><a href="#contact"
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Contact</a>
+        </li>
       </ul>
       <!-- Mobile Menu Button -->
-      <button class="md:hidden text-gray-300 hover:text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-        <i class="fa-solid fa-bars text-2xl"></i>
+      <button
+        class="md:hidden text-textLight hover:text-accentPink focus:outline-none bg-white p-2 rounded-xl border border-pastelPink/20"
+        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <i class="fa-solid fa-bars text-xl"></i>
       </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden fixed top-[81px] left-0 w-full bg-darkBg/95 backdrop-blur-lg border-b border-white/5 z-40">
-    <ul class="flex flex-col space-y-4 p-6 text-center text-white">
-      <li><a href="#hero" class="block text-silver hover:text-chrome transition-colors font-semibold tracking-widest uppercase text-sm">Home</a></li>
-      <li><a href="#about" class="block text-silver hover:text-chrome transition-colors font-semibold tracking-widest uppercase text-sm">About</a></li>
-      <li><a href="#skills" class="block text-silver hover:text-chrome transition-colors font-semibold tracking-widest uppercase text-sm">Skills</a></li>
-      <li><a href="#projects" class="block text-silver hover:text-chrome transition-colors font-semibold tracking-widest uppercase text-sm">Projects</a></li>
-      <li><a href="#contact" class="block text-silver hover:text-chrome transition-colors font-semibold tracking-widest uppercase text-sm">Contact</a></li>
+  <div id="mobile-menu"
+    class="hidden md:hidden fixed top-[84px] left-0 right-0 mx-auto w-[95%] max-w-[800px] bg-white/95 backdrop-blur-lg border border-pastelPink/30 z-40 rounded-3xl overflow-hidden">
+    <ul class="flex flex-col space-y-2 p-4 text-center text-textMain font-display">
+      <li><a href="#hero"
+          class="block text-textLight hover:text-accentPink hover:bg-pastelPink/10 rounded-xl py-3 transition-colors font-bold text-lg">Home
+          🐾</a></li>
+      <li><a href="#about"
+          class="block text-textLight hover:text-accentPink hover:bg-pastelPink/10 rounded-xl py-3 transition-colors font-bold text-lg">About
+          🎀</a></li>
+      <li><a href="#skills"
+          class="block text-textLight hover:text-accentPink hover:bg-pastelPink/10 rounded-xl py-3 transition-colors font-bold text-lg">Skills
+          ✨</a></li>
+      <li><a href="#projects"
+          class="block text-textLight hover:text-accentPink hover:bg-pastelPink/10 rounded-xl py-3 transition-colors font-bold text-lg">Projects
+          🌸</a></li>
+      <li><a href="#contact"
+          class="block text-textLight hover:text-accentPink hover:bg-pastelPink/10 rounded-xl py-3 transition-colors font-bold text-lg">Contact
+          💌</a></li>
     </ul>
   </div>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative z-10 min-h-screen flex flex-col justify-center items-start text-left px-6 md:px-24 pt-20 pb-16 opacity-0 animate-fade-in-up max-w-7xl mx-auto w-full">
-    <div class="mb-8 flex items-center gap-3">
-      <div class="w-12 h-[1px] bg-bloodRed"></div>
-      <span class="text-silver text-xs font-bold tracking-[0.3em] uppercase">System Access Granted</span>
-    </div>
-    <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-serif font-bold mb-4 tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-chrome to-gray-500 leading-none">
-      FAIJAH<br/>NONOY
-    </h1>
-    <p class="text-xl md:text-2xl text-silver mb-10 max-w-2xl leading-relaxed font-light tracking-wide border-l-2 border-bloodRed pl-6">
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-chrome to-gray-400 inline-block min-h-[1.5em]" id="typewriter"></span><span class="text-bloodRed animate-pulse">|</span>
-    </p>
-    <div class="flex flex-wrap gap-6 mt-4">
-      <a href="#projects" class="bg-bloodRed/10 border border-bloodRed/50 text-white px-10 py-4 font-bold text-xs uppercase tracking-[0.2em] shadow-[0_0_15px_rgba(139,0,0,0.2)] hover:bg-bloodRed hover:shadow-[0_0_30px_rgba(177,18,38,0.5)] transition-all duration-300">
-        Initiate Dossier
-      </a>
-      <a href="#contact" class="border border-white/20 bg-transparent text-silver hover:text-white hover:border-chrome px-10 py-4 font-bold text-xs uppercase tracking-[0.2em] transition-all duration-300">
-        Establish Comms
-      </a>
-    </div>
-  </section>
+  <section id="hero"
+    class="relative z-10 min-h-screen flex flex-col lg:flex-row justify-center items-center text-center px-6 md:px-12 pt-24 pb-16 opacity-0 animate-fade-in-up max-w-7xl mx-auto w-full gap-12 lg:gap-8">
 
-   <!-- About Content -->
-  <section id="about" class="relative z-10 flex flex-col pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
-    <div class="max-w-6xl mx-auto w-full">
-      
-      <div class="flex items-center gap-4 mb-16">
-        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-widest">Operator <span class="text-bloodRed text-5xl">.</span></h2>
-        <div class="flex-grow h-[1px] bg-gradient-to-r from-white/20 to-transparent"></div>
+    <!-- Left Column: Content -->
+    <div class="w-full lg:w-1/2 flex flex-col items-center">
+      <div
+        class="mb-8 flex items-center gap-3 bg-white px-6 py-3 rounded-full border border-pastelPink/20 animate-float shadow-sm">
+        <i class="fa-solid fa-cat text-accentPink text-xl"></i>
+        <span class="text-textLight text-sm font-bold tracking-widest uppercase font-display">Meowdy! Welcome to my
+          space</span>
       </div>
 
-      <!-- Top Row: Split Layout (Creative Text & Intro) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12 max-w-6xl mx-auto w-full">
+      <h2
+        class="text-4xl md:text-5xl lg:text-[4.5rem] text-textMain w-full leading-tight font-display font-bold tracking-tight mb-2">
+        I Can Do
+      </h2>
+      <h1
+        class="text-4xl md:text-5xl lg:text-[4.5rem] text-textMain mb-10 w-full leading-tight font-display font-bold tracking-tight bg-white/50 py-6 px-6 md:px-10 rounded-[2rem] border border-pastelPink/20 shadow-sm">
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-accentPink to-accentMint inline-block min-h-[1.2em]"
+          id="typewriter"></span><span class="text-accentPink animate-pulse">|</span>
+      </h1>
+
+      <div class="flex flex-wrap justify-center gap-4 mt-4 font-display">
+        <a href="#projects"
+          class="bg-accentPink text-white px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-pastelPink transition-all duration-300 flex items-center gap-2">
+          <i class="fa-solid fa-fish"></i> See My Work
+        </a>
+        <a href="#contact"
+          class="bg-white text-textMain border-2 border-pastelPink px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-pastelPink/10 transition-all duration-300 flex items-center gap-2">
+          <i class="fa-solid fa-paper-plane text-accentPink"></i> Say Hello
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Image Placeholder -->
+    <div class="w-full lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0 relative">
+      <div class="relative w-64 md:w-[350px] lg:w-[400px] animate-float">
+        <!-- Decorative backing elements -->
+        <div class="absolute inset-0 bg-mintGreen/40 rounded-full blur-[50px] animate-blob"></div>
         
-        <!-- Left Column: Creative Text Design -->
-        <div class="flex flex-col justify-center items-start text-left bg-surface border border-white/5 p-8 md:p-12 h-full relative overflow-hidden group min-h-[400px]">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-bloodRed/10 blur-[50px] group-hover:bg-bloodRed/20 transition-colors duration-700"></div>
-            
-            <div class="text-bloodRed font-bold tracking-[0.3em] uppercase text-xs mb-6">Profile Intelligence</div>
-            <h3 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500 mb-6 leading-tight z-10 tracking-tighter">
-                Combining technical expertise with a <span class="italic text-chrome">tactical</span> mindset.
-            </h3>
-            <div class="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-bloodRed to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700"></div>
+        <!-- Scrapbook Backing Paper (Grid) -->
+        <div class="absolute -inset-4 md:-inset-8 bg-white rounded-xl shadow-lg border border-gray-200 transform rotate-3"
+             style="background-size: 30px 30px; background-image: linear-gradient(to right, rgba(255, 20, 147, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 20, 147, 0.1) 1px, transparent 1px);">
         </div>
 
-        <!-- Right Column: Intro, Info & CV Button -->
-        <div class="flex flex-col items-start justify-center text-left h-full lg:pl-12 border-l border-white/10">
-            <h3 class="text-xl font-bold text-white mb-4 uppercase tracking-widest">Background</h3>
-            <p class="text-base text-silver leading-relaxed font-light mb-6">
-              Hi, I'm Faijah, an  Information Technology student and aspiring Web Developer.
-            </p>
-            <p class="text-sm text-gray-400 leading-relaxed font-light mb-10">
-             I am a passionate and detail-oriented aspiring developer with experience in web development, QA testing, UI/UX design, and Agile project collaboration. Skilled in HTML, CSS, JavaScript, Python, Java, Figma, GitHub, Jira, and ClickUp, I enjoy creating responsive and user-friendly digital experiences. I have worked on academic and freelance projects involving website development, software testing, and collaborative project management. Currently seeking an internship opportunity to further develop my technical and problem-solving skills in a professional environment.
-            </p>
+        <!-- Polaroid Photo Frame -->
+        <div class="relative bg-white p-4 pb-16 md:p-6 md:pb-20 shadow-2xl transform -rotate-2 border border-gray-100 z-10 hover:rotate-0 transition-transform duration-500">
+          <!-- Top Tape -->
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 md:w-32 h-8 bg-pastelPink/40 backdrop-blur-sm border-x-2 border-dashed border-white/70 transform -rotate-2 z-20"></div>
+          
+          <!-- Pin -->
+          <div class="absolute top-2 right-3 md:right-4 text-3xl transform rotate-12 z-20 drop-shadow-md cursor-pointer hover:animate-wiggle">📌</div>
+
+          <div class="relative w-full aspect-square md:aspect-[4/5] bg-softBg border-2 border-pastelPink/20 overflow-hidden">
+            <img src="https://placehold.co/800x1000/FF1493/FFF?text=Your+Photo+Here" alt="Hero Portrait" class="w-full h-full object-cover">
+          </div>
+          
+          <!-- Handwritten Caption -->
+          <div class="absolute bottom-4 md:bottom-6 left-0 right-0 text-center">
+            <span class="font-display font-bold text-xl md:text-2xl text-accentPink transform -rotate-2 inline-block">✨ Hello! ✨</span>
+          </div>
+        </div>
+
+        <!-- Floating Embellishments -->
+        <div class="parallax-wrapper absolute -top-6 -left-6 z-20" data-speed="-0.3">
+          <div class="text-5xl animate-bounce drop-shadow-lg" style="animation-duration: 4s;">🎀</div>
+        </div>
+        <div class="parallax-wrapper absolute -bottom-8 -right-6 z-20" data-speed="-0.6">
+          <div class="text-6xl animate-float drop-shadow-lg" style="animation-delay: 1.5s;">🌸</div>
+        </div>
+        <div class="parallax-wrapper absolute bottom-1/4 -left-10 z-20" data-speed="-0.2">
+          <div class="text-4xl animate-wiggle drop-shadow-lg opacity-90">🐱</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- About Content -->
+  <section id="about" class="relative z-10 flex flex-col pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
+    <div class="max-w-7xl mx-auto w-full">
+
+      <div class="flex items-center gap-4 mb-12 justify-center text-center">
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-textMain tracking-wide relative inline-block">
+          About Me
+          <span class="absolute -top-6 -right-8 text-3xl animate-bounce">🧶</span>
+        </h2>
+      </div>
+
+           <!-- OPENED NOTEBOOK CONTAINER -->
+      <div class="relative w-full flex flex-col lg:flex-row bg-white rounded-[2rem] shadow-2xl border-4 border-pastelPink/30 z-10">
+        
+        <!-- Custom CSS for Notebook Realism -->
+        <style>
+          .notebook-paper {
+            background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(255, 20, 147, 0.15) 31px, rgba(255, 20, 147, 0.15) 32px);
+            background-size: 100% 32px;
+            background-position: 0 16px;
+          }
+      .spine {
+            background: linear-gradient(to right, #f1f5f9, #cbd5e1, #f1f5f9);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+          }
+
+
+          .binder-ring {
+            width: 50px;
+            height: 12px;
+            background: linear-gradient(to bottom, #d1d5db, #f8fafc, #9ca3af, #d1d5db);
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4), inset 0 2px 2px rgba(255,255,255,0.9);
+            position: relative;
+            z-index: 30;
+          }
+        
+        .binder-hole {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: #111827;
+            border-radius: 50%;
+            top: -1px;
+            box-shadow: inset 0 3px 6px rgba(0,0,0,0.8);
+          }
+
+        .washi-tape {
+            background-color: rgba(255, 20, 147, 0.4);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            backdrop-filter: blur(2px);
+            border-left: 2px dashed rgba(255,255,255,0.6);
+            border-right: 2px dashed rgba(255,255,255,0.6);
+          }
+
+          .washi-tape.mint {
+            background-color: rgba(216, 180, 254, 0.6);
+          }
+        </style>
+
+        <!-- Desktop Center Binder Spine -->
+        <div class="hidden lg:flex absolute left-1/2 top-0 bottom-0 w-10 -translate-x-1/2 spine z-20 flex-col justify-evenly py-10 items-center">
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+          <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
+        </div>
+
+        <!-- LEFT PAGE (EXPERIENCE) -->
+        <div class="w-full lg:w-1/2 relative notebook-paper p-8 lg:p-12 z-10 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-300 rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem]">
+          <!-- Red Margin Line -->
+          <div class="absolute left-10 lg:left-12 top-0 bottom-0 w-[2px] bg-red-400/60 z-0"></div>
+          
+          <!-- Tape Decoration -->
+          <div class="absolute -top-4 left-1/4 w-32 h-8 washi-tape transform -rotate-3 z-20 flex items-center justify-center text-xs text-white font-bold font-display uppercase tracking-widest">Memories</div>
+          <div class="absolute bottom-10 left-4 text-4xl transform -rotate-12 opacity-80">🌸</div>
+
+          <!-- Content Wrapper -->
+          <div class="relative z-10 pl-6 md:pl-8 pt-4">
+            <h3 class="text-3xl font-display font-bold text-textMain mb-8 flex items-center gap-3">
+              <div class="w-10 h-10 bg-mintGreen/30 rounded-full flex items-center justify-center text-accentPink transform -rotate-6 shadow-sm"><i class="fa-solid fa-briefcase"></i></div>
+              Experience
+            </h3>
+
+            <div class="space-y-8">
+              <div class="relative scrapbook-item group">
+                <div class="absolute -left-8 top-1 text-xl transform -rotate-12 group-hover:rotate-12 transition-transform">⭐</div>
+                <h4 class="text-xl font-display font-bold text-accentPink bg-white/80 inline px-2 rounded-sm">Web Developer</h4>
+                <p class="text-sm font-bold text-accentMint mb-1 pl-2 font-display uppercase tracking-wide">Jan 2026 - Present | El International Church</p>
+                <p class="text-base text-textLight leading-[32px] pl-2 font-medium">Built and designed a dedicated organizational website to improve digital presence and accessibility. Developed responsive web pages and improved overall website usability.</p>
+              </div>
+
+              <div class="relative scrapbook-item group">
+                <div class="absolute -left-8 top-1 text-xl transform rotate-12 group-hover:-rotate-12 transition-transform">⭐</div>
+                <h4 class="text-xl font-display font-bold text-accentPink bg-white/80 inline px-2 rounded-sm">Freelance Web Designer</h4>
+                <p class="text-sm font-bold text-accentMint mb-1 pl-2 font-display uppercase tracking-wide">Jan 2025 - May 2025 | Agape Blossoms</p>
+                <p class="text-base text-textLight leading-[32px] pl-2 font-medium">Developed a custom e-commerce website for a local flower business to support online product display and customer inquiries. Designed responsive user interfaces.</p>
+              </div>
+
+              <div class="relative scrapbook-item group">
+                <div class="absolute -left-8 top-1 text-xl transform -rotate-12 group-hover:rotate-12 transition-transform">⭐</div>
+                <h4 class="text-xl font-display font-bold text-accentPink bg-white/80 inline px-2 rounded-sm">Data Entry Specialist</h4>
+                <p class="text-sm font-bold text-accentMint mb-1 pl-2 font-display uppercase tracking-wide">Sep 2024 | Upwork</p>
+                <p class="text-base text-textLight leading-[32px] pl-2 font-medium">Encoded and organized raw data into structured spreadsheets for international clients. Verified data accuracy.</p>
+              </div>
+            </div>
+
+            <h3 class="text-3xl font-display font-bold text-textMain mb-6 mt-12 flex items-center gap-3">
+              <div class="w-10 h-10 bg-pastelPink/20 rounded-full flex items-center justify-center text-accentMint transform -rotate-12 shadow-sm"><i class="fa-solid fa-graduation-cap"></i></div>
+              Education
+            </h3>
+
+            <div class="space-y-6">
+              <div class="relative scrapbook-item">
+                <div class="absolute -left-5 top-2 w-3 h-3 bg-accentPink rounded-full shadow-sm"></div>
+                <h4 class="text-lg font-display font-bold text-accentPink bg-white/80 inline px-2 rounded-sm">BS in Information Technology</h4>
+                <p class="text-sm font-bold text-accentMint mb-1 pl-2 font-display uppercase tracking-wide">2023 - Present | PLV</p>
+                <p class="text-sm text-textLight leading-[32px] pl-2 font-medium">Dean’s Lister (A.Y. 2023–2025). Capstone: A Web-based AI-Driven Supplemental System in Learning Mathematics.</p>
+              </div>
+
+              <div class="relative scrapbook-item">
+                <div class="absolute -left-5 top-2 w-3 h-3 bg-accentPink rounded-full shadow-sm"></div>
+                <h4 class="text-lg font-display font-bold text-accentPink bg-white/80 inline px-2 rounded-sm">ICT Senior High</h4>
+                <p class="text-sm font-bold text-accentMint mb-1 pl-2 font-display uppercase tracking-wide">2021 - 2023 | Electron College</p>
+                <p class="text-sm text-textLight leading-[32px] pl-2 font-medium">Graduated With High Honors.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT PAGE (BACKGROUND & PHOTO) -->
+        <div class="w-full lg:w-1/2 relative notebook-paper p-8 lg:p-12 z-10 rounded-b-[2rem] lg:rounded-bl-none lg:rounded-r-[2rem]">
+          <!-- Red Margin Line -->
+          <div class="absolute left-10 lg:left-12 top-0 bottom-0 w-[2px] bg-red-400/60 z-0"></div>
+          
+          <!-- Tape Decoration -->
+          <div class="absolute -top-4 right-1/4 w-32 h-8 washi-tape mint transform rotate-3 z-20 flex items-center justify-center text-xs text-white font-bold font-display uppercase tracking-widest">About Me</div>
+          <div class="absolute top-10 right-4 text-4xl transform rotate-12 opacity-80 cursor-pointer hover:animate-wiggle z-20">📌</div>
+
+          <!-- Content Wrapper -->
+          <div class="relative z-10 pl-6 md:pl-8 pt-4">
             
-            <div class="mt-auto w-full">
-              <a href="https://drive.google.com/uc?export=download&id=1tYaSpE_iHcZZgtXwcCZOCN1PBib9MThl" target="_blank" download class="inline-flex items-center justify-center gap-3 border border-silver/30 text-silver px-8 py-3 text-xs font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-darkBg transition-all duration-300">
-                Extract Data File (CV) <i class="fa-solid fa-download"></i>
+            <h3 class="text-3xl font-display font-bold text-textMain mb-4 flex items-center gap-3">
+              <div class="w-10 h-10 bg-pastelPink/20 rounded-full flex items-center justify-center text-accentMint transform rotate-6 shadow-sm"><i class="fa-solid fa-seedling"></i></div>
+              Background
+            </h3>
+            
+            <p class="text-base text-textLight leading-[32px] font-medium mb-4">
+              Meow! I'm Faijah, an Information Technology student and aspiring Web Developer. 🐾
+            </p>
+            <p class="text-base text-textLight leading-[32px] font-medium mb-8">
+              I have two sides: the <b>creative designer</b> and the highly <b>organized planner</b>. 
+              <br><br>On the creative side, I build websites, design modern interfaces, and create engaging graphics. 
+              <br>On the organized side, I manage schedules, handle paperwork, and test projects to ensure perfection.
+              <br><br>
+              I am looking for an internship where I can bring both my artistic eye and my love for order to a great company!
+            </p>
+
+            <!-- Polaroid / Resume Button -->
+            <div class="mt-8 flex justify-center pb-4">
+              <a href="https://drive.google.com/uc?export=download&id=1tYaSpE_iHcZZgtXwcCZOCN1PBib9MThl" target="_blank" download class="relative group">
+                <div class="bg-white p-3 pb-8 shadow-md transform rotate-3 group-hover:rotate-0 transition-transform duration-300 border border-gray-200">
+                  <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-2xl z-20">📌</div>
+                  <div class="bg-mintGreen text-textMain px-8 py-4 flex items-center gap-3 font-display font-bold tracking-wide border-2 border-dashed border-accentPink/50">
+                    Download My Resume <i class="fa-solid fa-download"></i>
+                  </div>
+                  <span class="absolute bottom-2 right-4 text-xs font-display text-gray-500 font-bold transform -rotate-3">Take me!</span>
+                </div>
               </a>
             </div>
+            
+            <!-- Photo Placeholder -->
+            <div class="mt-12 flex justify-center pb-4">
+              <div class="relative group bg-white p-3 pb-10 shadow-md transform -rotate-2 hover:rotate-1 transition-transform duration-300 border border-gray-200 w-full max-w-[280px]">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-6 washi-tape mint transform rotate-2 z-20"></div>
+                <div class="aspect-square w-full bg-softBg border-2 border-pastelPink/20 overflow-hidden">
+                   <img src="https://placehold.co/400x400/FF1493/FFF?text=Photo+Here" alt="My Photo" class="w-full h-full object-cover">
+                </div>
+                <span class="absolute bottom-3 right-4 text-sm font-display text-gray-500 font-bold transform -rotate-2">✨ Me!</span>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </div>
-
-      <!-- Bottom Row: Education & Experience (Side by side) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
-          
-          <!-- Education Section -->
-          <div class="flex flex-col h-full group">
-            
-            <div class="flex items-center gap-4 mb-8">
-              <i class="fa-solid fa-crosshairs text-bloodRed text-xl"></i>
-              <h3 class="text-xl font-bold text-white uppercase tracking-widest">Education</h3>
-            </div>
-            
-            <div class="space-y-6">
-              <div class="group/item relative pl-6 border-l border-white/10 hover:border-bloodRed transition-colors duration-300">
-                <div class="absolute -left-[5px] top-1 w-2 h-2 bg-darkBg border border-white/30 group-hover/item:border-bloodRed group-hover/item:bg-bloodRed transition-all"></div>
-                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                  <h4 class="text-base font-bold text-white uppercase tracking-wide group-hover/item:text-chrome transition-colors">BS in Information Technology</h4>
-                  <span class="text-[10px] font-bold text-silver bg-surface border border-silver/20 px-2 py-1 uppercase tracking-widest whitespace-nowrap">2023 - Present</span>
-                </div>
-                <p class="text-sm text-bloodRed font-medium tracking-wide">Pamantasan ng Lungsod ng Valenzuela</p>
-                <p class="text-sm text-gray-400 mt-3 leading-relaxed font-light">Dean’s Lister (A.Y. 2023–2024, A.Y. 2024-2025)<br>Capstone: A Web-based AI-Driven Supplemental System in Learning Mathematics</p>
-              </div>
-
-              <div class="group/item relative pl-6 border-l border-white/10 hover:border-bloodRed transition-colors duration-300">
-                <div class="absolute -left-[5px] top-1 w-2 h-2 bg-darkBg border border-white/30 group-hover/item:border-bloodRed group-hover/item:bg-bloodRed transition-all"></div>
-                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                  <h4 class="text-base font-bold text-white uppercase tracking-wide group-hover/item:text-chrome transition-colors">ICT Senior High</h4>
-                  <span class="text-[10px] font-bold text-silver bg-surface border border-silver/20 px-2 py-1 uppercase tracking-widest whitespace-nowrap">2021 - 2023</span>
-                </div>
-                <p class="text-sm text-bloodRed font-medium tracking-wide">Electron College of Technical Education</p>
-                <p class="text-sm text-gray-400 mt-3 leading-relaxed font-light">With High Honors</p>
-              </div>
-            </div>
-            
           </div>
 
-          <!-- Experience Section -->
-          <div class="flex flex-col h-full group">
-            
-            <div class="flex items-center gap-4 mb-8">
-              <i class="fa-solid fa-layer-group text-bloodRed text-xl"></i>
-              <h3 class="text-xl font-bold text-white uppercase tracking-widest">Field Experience</h3>
-            </div>
-            
-            <div class="space-y-6">
-              <div class="group/item relative pl-6 border-l border-white/10 hover:border-bloodRed transition-colors duration-300">
-                <div class="absolute -left-[5px] top-1 w-2 h-2 bg-darkBg border border-white/30 group-hover/item:border-bloodRed group-hover/item:bg-bloodRed transition-all"></div>
-                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                  <h4 class="text-base font-bold text-white uppercase tracking-wide group-hover/item:text-chrome transition-colors">Web Developer</h4>
-                  <span class="text-[10px] font-bold text-silver bg-surface border border-silver/20 px-2 py-1 uppercase tracking-widest whitespace-nowrap">Jan 2026 - Present</span>
-                </div>
-                <p class="text-sm text-bloodRed font-medium tracking-wide">El International Church</p>
-                <p class="text-sm text-gray-400 mt-3 leading-relaxed font-light">Built and designed a dedicated organizational website to improve digital presence and accessibility. Developed responsive web pages and improved overall website usability.</p>
-              </div>
-              
-              <div class="group/item relative pl-6 border-l border-white/10 hover:border-bloodRed transition-colors duration-300">
-                <div class="absolute -left-[5px] top-1 w-2 h-2 bg-darkBg border border-white/30 group-hover/item:border-bloodRed group-hover/item:bg-bloodRed transition-all"></div>
-                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                  <h4 class="text-base font-bold text-white uppercase tracking-wide group-hover/item:text-chrome transition-colors">Freelance Web Designer</h4>
-                  <span class="text-[10px] font-bold text-silver bg-surface border border-silver/20 px-2 py-1 uppercase tracking-widest whitespace-nowrap">Jan 2025 - May 2025</span>
-                </div>
-                <p class="text-sm text-bloodRed font-medium tracking-wide">Agape Blossoms</p>
-                <p class="text-sm text-gray-400 mt-3 leading-relaxed font-light">Developed a custom e-commerce website for a local flower business to support online product display and customer inquiries. Designed responsive user interfaces.</p>
-              </div>
-
-              <div class="group/item relative pl-6 border-l border-white/10 hover:border-bloodRed transition-colors duration-300">
-                <div class="absolute -left-[5px] top-1 w-2 h-2 bg-darkBg border border-white/30 group-hover/item:border-bloodRed group-hover/item:bg-bloodRed transition-all"></div>
-                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
-                  <h4 class="text-base font-bold text-white uppercase tracking-wide group-hover/item:text-chrome transition-colors">Data Entry Specialist</h4>
-                  <span class="text-[10px] font-bold text-silver bg-surface border border-silver/20 px-2 py-1 uppercase tracking-widest whitespace-nowrap">Sep 2024</span>
-                </div>
-                <p class="text-sm text-bloodRed font-medium tracking-wide">Upwork</p>
-                <p class="text-sm text-gray-400 mt-3 leading-relaxed font-light">Encoded and organized raw data into structured spreadsheets for international clients. Verified data accuracy.</p>
-              </div>
-            </div>
-            
-          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-    <!-- Skills Content -->
+  <!-- Skills Content -->
   <section id="skills" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
     <div class="max-w-6xl mx-auto w-full">
-      <div class="flex items-center gap-4 mb-12">
-        <div class="flex-grow h-[1px] bg-gradient-to-l from-white/20 to-transparent hidden md:block"></div>
-        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-widest text-center">Arsenal <span class="text-bloodRed text-5xl">.</span></h2>
-        <div class="flex-grow h-[1px] bg-gradient-to-r from-white/20 to-transparent"></div>
+      <div class="flex items-center gap-4 mb-12 justify-center">
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-textMain text-center relative inline-block">
+          My Toolkit
+          <span class="absolute -top-8 -left-6 text-3xl transform -rotate-12">🛠️</span>
+        </h2>
       </div>
-      
+
       <!-- Tabs Navigation -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
-        <button onclick="filterSkills('all')" data-category="all" class="skill-tab px-6 py-2 font-bold text-xs uppercase tracking-[0.2em] transition-all border border-white/10 bg-surface text-silver hover:border-chrome hover:text-white">
-            All
+      <div class="flex flex-wrap justify-center gap-4 mb-12 font-display">
+        <button onclick="filterSkills('all')" data-category="all"
+          class="skill-tab px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 border-2 border-pastelPink bg-white text-accentPink">
+          All
         </button>
-        <button onclick="filterSkills('development')" data-category="development" class="skill-tab px-6 py-2 font-bold text-xs uppercase tracking-[0.2em] transition-all border border-white/10 bg-surface text-silver hover:border-chrome hover:text-white">
-            Development
+        <button onclick="filterSkills('development')" data-category="development"
+          class="skill-tab px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 border-2 border-pastelPink bg-white text-accentPink">
+          Development
         </button>
-        <button onclick="filterSkills('design')" data-category="design" class="skill-tab px-6 py-2 font-bold text-xs uppercase tracking-[0.2em] transition-all border border-white/10 bg-surface text-silver hover:border-chrome hover:text-white">
-            Creative
+        <button onclick="filterSkills('design')" data-category="design"
+          class="skill-tab px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 border-2 border-pastelPink bg-white text-accentPink">
+          Creative
         </button>
-        <button onclick="filterSkills('management')" data-category="management" class="skill-tab px-6 py-2 font-bold text-xs uppercase tracking-[0.2em] transition-all border border-white/10 bg-surface text-silver hover:border-chrome hover:text-white">
-            Management
+        <button onclick="filterSkills('management')" data-category="management"
+          class="skill-tab px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 border-2 border-pastelPink bg-white text-accentPink">
+          Management
         </button>
-        <button onclick="filterSkills('skills')" data-category="skills" class="skill-tab px-6 py-2 font-bold text-xs uppercase tracking-[0.2em] transition-all border border-white/10 bg-surface text-silver hover:border-chrome hover:text-white">
-            Tactics
+        <button onclick="filterSkills('skills')" data-category="skills"
+          class="skill-tab px-6 py-3 rounded-full font-bold text-sm tracking-wide transition-all duration-300 border-2 border-pastelPink bg-white text-accentPink">
+          Tactics
         </button>
       </div>
-      
+
       <!-- Skills Content -->
       <div class="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto w-full">
-        
+
         <!-- Programming & Web Development -->
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-html5 text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">HTML</span>
-        </div>
-        
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-css3-alt text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">CSS</span>
-        </div>
-
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-js text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">JavaScript</span>
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-html5 text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">HTML</span>
         </div>
 
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-python text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Python</span>
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-css3-alt text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">CSS</span>
         </div>
 
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-java text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Java</span>
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-js text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">JavaScript</span>
         </div>
 
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-github text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">GitHub</span>
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-python text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Python</span>
         </div>
 
-        <div data-category="development" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-caret-up text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Vercel</span>
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-java text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Java</span>
+        </div>
+
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-github text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">GitHub</span>
+        </div>
+
+        <div data-category="development"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-caret-up text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Vercel</span>
         </div>
 
         <!-- Design & Creative -->
-        <div data-category="design" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-figma text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Figma</span>
+        <div data-category="design"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-figma text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Figma</span>
         </div>
 
-        <div data-category="design" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-palette text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Canva</span>
+        <div data-category="design"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-palette text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Canva</span>
         </div>
 
 
         <!-- Project Management -->
-        <div data-category="management" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-jira text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Jira</span>
+        <div data-category="management"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-brands fa-jira text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Jira</span>
         </div>
 
-        <div data-category="management" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-check-double text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">ClickUp</span>
+        <div data-category="management"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-check-double text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">ClickUp</span>
         </div>
 
-        <div data-category="management" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-arrows-spin text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Agile/Scrum</span>
+        <div data-category="management"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-arrows-spin text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Agile/Scrum</span>
         </div>
 
         <!-- Skills Category -->
-        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-bug text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">QA Testing</span>
+        <div data-category="skills"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-bug text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">QA
+            Testing</span>
         </div>
 
-        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-pen-ruler text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">UI/UX Design</span>
+        <div data-category="skills"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform -rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-pen-ruler text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">UI/UX
+            Design</span>
         </div>
 
-        <div data-category="skills" class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-surface border border-white/5 hover:border-bloodRed transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-mobile-screen text-4xl mb-3 text-silver group-hover:text-white transition-colors"></i>
-          <span class="font-bold text-silver text-[10px] uppercase tracking-widest text-center group-hover:text-white transition-colors">Responsive Design</span>
+        <div data-category="skills"
+          class="skill-card flex flex-col items-center justify-center p-4 sm:p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 w-[45%] sm:w-36 md:w-40 h-32 sm:h-36 md:h-40 cursor-default group relative overflow-hidden">
+          <div
+            class="absolute top-2 right-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity transform rotate-12">
+            ✨</div>
+          <i
+            class="fa-solid fa-mobile-screen text-4xl mb-3 text-pastelPink group-hover:text-accentPink group-hover:scale-110 transition-all"></i>
+          <span
+            class="font-display font-bold text-textMain text-xs tracking-wider text-center group-hover:text-accentPink transition-colors">Responsive
+            Design</span>
         </div>
 
       </div>
@@ -360,83 +626,130 @@
   <!-- Featured Projects Content -->
   <section id="projects" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
     <div class="max-w-6xl mx-auto w-full">
-      <div class="flex items-center gap-4 mb-16">
-        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-widest">Dossier <span class="text-bloodRed text-5xl">.</span></h2>
-        <div class="flex-grow h-[1px] bg-gradient-to-r from-white/20 to-transparent"></div>
+      <div class="flex items-center gap-4 mb-16 justify-center">
+        <h2 class="text-4xl md:text-5xl font-display font-bold text-textMain text-center relative">
+          Featured Work
+          <div class="absolute -top-6 -right-10 text-4xl transform rotate-12 animate-wiggle hidden sm:block">🎨</div>
+        </h2>
       </div>
 
-      <div class="group relative flex flex-col lg:flex-row bg-surface border border-white/5 hover:border-bloodRed transition-all duration-500 max-w-5xl mx-auto mb-12">
-        <div class="w-full lg:w-1/2 h-72 lg:h-auto overflow-hidden relative border-b lg:border-b-0 lg:border-r border-white/5">
-            <img src="assets/images/homepage/agape_coverphoto.png" alt="Agape Blossoms" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+      <div
+        class="group relative flex flex-col lg:flex-row bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-500 max-w-5xl mx-auto mb-12 overflow-hidden">
+        <div
+          class="w-full lg:w-1/2 h-72 lg:h-auto overflow-hidden relative border-b lg:border-b-0 lg:border-r border-pastelPink/20">
+          <img src="assets/images/homepage/agape_coverphoto.png" alt="Agape Blossoms"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div
+            class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-xs font-bold text-accentPink font-display flex items-center gap-2">
+            <i class="fa-solid fa-star text-yellow-400"></i> Featured
+          </div>
         </div>
-        <div class="w-full lg:w-1/2 p-8 md:p-10 flex flex-col justify-center text-left">
-            <div class="text-bloodRed font-bold tracking-[0.3em] uppercase text-[10px] mb-2">Classified Project // 01</div>
-            <h3 class="text-3xl font-serif font-bold text-white uppercase tracking-widest mb-4">Agape Blossoms</h3>
-            <p class="text-gray-400 text-sm mb-6 leading-relaxed font-light">
-             An academic project delivering a complete online storefront for a handmade crafts business. It transforms basic shopping mechanics into a seamless user experience, bridging the gap between web systems coursework and real-world client needs.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-8">
-                <span class="px-3 py-1 bg-darkBg text-silver text-[10px] font-bold uppercase tracking-widest border border-white/10">HTML</span>
-                <span class="px-3 py-1 bg-darkBg text-silver text-[10px] font-bold uppercase tracking-widest border border-white/10">CSS</span>
-                <span class="px-3 py-1 bg-darkBg text-silver text-[10px] font-bold uppercase tracking-widest border border-white/10">JavaScript</span>
-                <span class="px-3 py-1 bg-darkBg text-silver text-[10px] font-bold uppercase tracking-widest border border-white/10">PHP</span>
-                <span class="px-3 py-1 bg-darkBg text-silver text-[10px] font-bold uppercase tracking-widest border border-white/10">MySQL</span>
-            </div>
-            <div class="flex flex-wrap gap-4 mt-auto">
-                <a href="https://www.figma.com/proto/wZwenRMv5abh3BmyJZC9HV/AGAPE-BLOSSOMS-DESKTOP-MOCKUP-FINAL?node-id=1-4&t=aksjdrpm0ADySRjj-1&starting-point-node-id=1%3A4" class="px-6 py-3 bg-bloodRed/10 border border-bloodRed text-white text-[10px] uppercase font-bold tracking-widest hover:bg-bloodRed transition-all flex items-center gap-2">View Prototype <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
-            </div>
+        <div
+          class="w-full lg:w-1/2 p-8 md:p-10 flex flex-col justify-center text-left bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNGRkI3QzUiIGZpbGwtb3BhY2l0eT0iMC4xNSIvPjwvc3ZnPg==')]">
+          <div class="text-accentMint font-bold font-display tracking-widest uppercase text-xs mb-2">E-Commerce // 01
+          </div>
+          <h3 class="text-3xl font-display font-bold text-textMain mb-4">Agape Blossoms</h3>
+          <p class="text-textLight text-sm mb-6 leading-relaxed font-medium">
+            An academic project delivering a complete online storefront for a handmade crafts business. It transforms
+            basic shopping mechanics into a seamless user experience, bridging the gap between web systems coursework
+            and real-world client needs.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span
+              class="px-3 py-1 bg-pastelPink/10 text-accentPink text-[10px] font-bold rounded-full font-display">HTML</span>
+            <span
+              class="px-3 py-1 bg-pastelPink/10 text-accentPink text-[10px] font-bold rounded-full font-display">CSS</span>
+            <span
+              class="px-3 py-1 bg-pastelPink/10 text-accentPink text-[10px] font-bold rounded-full font-display">JavaScript</span>
+            <span
+              class="px-3 py-1 bg-pastelPink/10 text-accentPink text-[10px] font-bold rounded-full font-display">PHP</span>
+            <span
+              class="px-3 py-1 bg-pastelPink/10 text-accentPink text-[10px] font-bold rounded-full font-display">MySQL</span>
+          </div>
+          <div class="flex flex-wrap gap-4 mt-auto">
+            <a href="https://www.figma.com/proto/wZwenRMv5abh3BmyJZC9HV/AGAPE-BLOSSOMS-DESKTOP-MOCKUP-FINAL?node-id=1-4&t=aksjdrpm0ADySRjj-1&starting-point-node-id=1%3A4"
+              class="px-6 py-3 bg-accentPink text-white rounded-full text-xs font-bold font-display hover:bg-pastelPink transition-all flex items-center gap-2"><i
+                class="fa-solid fa-paw"></i> View Prototype</a>
+          </div>
         </div>
       </div>
 
       <div class="text-center">
-        <a href="projects.html" class="inline-flex items-center gap-3 border-b-2 border-bloodRed text-white hover:text-chrome px-4 py-2 text-xs uppercase font-bold tracking-[0.2em] transition-all">
-          Access Full Database <i class="fa-solid fa-arrow-right"></i>
+        <a href="projects.html"
+          class="inline-flex items-center gap-3 bg-white text-textMain border-2 border-pastelPink hover:bg-pastelPink/10 px-8 py-3 rounded-full text-sm font-bold font-display transition-all">
+          Explore All Projects <i class="fa-solid fa-arrow-right text-accentPink"></i>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Contact Content -->
-  <section id="contact" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 mb-[5%] opacity-0 animate-fade-in-up">
+  <section id="contact"
+    class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 mb-[5%] opacity-0 animate-fade-in-up">
     <div class="max-w-4xl mx-auto w-full">
-      
+
       <div class="text-center mb-12 relative">
-        <div class="w-16 h-16 border border-bloodRed text-bloodRed flex items-center justify-center mx-auto mb-8 bg-bloodRed/5">
-          <i class="fa-solid fa-tower-cell text-2xl"></i>
+        <div
+          class="w-20 h-20 bg-white rounded-full text-accentPink flex items-center justify-center mx-auto mb-6 border-4 border-pastelPink/20 animate-float">
+          <i class="fa-solid fa-envelope-open-text text-3xl"></i>
         </div>
-        <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4 uppercase tracking-widest text-white">Comms <span class="text-bloodRed text-5xl">.</span></h2>
-        <p class="text-silver mb-8 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">Channels are open. Awaiting further directives or recruitment inquiries.</p>
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-textMain relative inline-block">
+          Let's Connect!
+          <span class="absolute -right-12 -top-4 text-4xl transform rotate-12 hidden sm:block">💌</span>
+        </h2>
+        <p class="text-textLight mb-8 text-sm md:text-base font-medium leading-relaxed max-w-2xl mx-auto">My inbox is
+          always open! Whether you have a question or just want to say hi, I'll try my best to get back to you! 🐾</p>
       </div>
 
       <!-- Social Media & Contact Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        
+
         <!-- LinkedIn -->
-        <a href="http://www.linkedin.com/in/faijahnonoy" target="_blank" class="flex flex-col items-center justify-center p-6 bg-surface border border-white/10 hover:border-bloodRed transition-all duration-300 group relative">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-linkedin text-3xl mb-4 text-silver group-hover:text-white transition-colors duration-300"></i>
-          <span class="font-bold text-white text-[10px] uppercase tracking-widest mb-2">LinkedIn</span>
+        <a href="http://www.linkedin.com/in/faijahnonoy" target="_blank"
+          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
+          <div
+            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <i
+            class="fa-brands fa-linkedin text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
+          <span
+            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">LinkedIn</span>
         </a>
 
         <!-- GitHub -->
-        <a href="https://github.com/superfaize" target="_blank" class="flex flex-col items-center justify-center p-6 bg-surface border border-white/10 hover:border-bloodRed transition-all duration-300 group relative">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-github text-3xl mb-4 text-silver group-hover:text-white transition-colors duration-300"></i>
-          <span class="font-bold text-white text-[10px] uppercase tracking-widest mb-2">GitHub</span>
+        <a href="https://github.com/superfaize" target="_blank"
+          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
+          <div
+            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <i
+            class="fa-brands fa-github text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
+          <span
+            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">GitHub</span>
         </a>
 
         <!-- Facebook -->
-        <a href="https://www.facebook.com/superfaize" target="_blank" class="flex flex-col items-center justify-center p-6 bg-surface border border-white/10 hover:border-bloodRed transition-all duration-300 group relative">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-brands fa-facebook text-3xl mb-4 text-silver group-hover:text-white transition-colors duration-300"></i>
-          <span class="font-bold text-white text-[10px] uppercase tracking-widest mb-2">Facebook</span>
+        <a href="https://www.facebook.com/superfaize" target="_blank"
+          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
+          <div
+            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <i
+            class="fa-brands fa-facebook text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
+          <span
+            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">Facebook</span>
         </a>
 
         <!-- Gmail -->
-        <a href="mailto:faijahnonoy20@gmail.com" class="flex flex-col items-center justify-center p-6 bg-surface border border-white/10 hover:border-bloodRed transition-all duration-300 group relative">
-          <div class="absolute inset-0 bg-bloodRed/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <i class="fa-solid fa-envelope text-3xl mb-4 text-silver group-hover:text-white transition-colors duration-300"></i>
-          <span class="font-bold text-white text-[10px] uppercase tracking-widest mb-2">Gmail</span>
+        <a href="mailto:faijahnonoy20@gmail.com"
+          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
+          <div
+            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <i
+            class="fa-solid fa-envelope text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
+          <span
+            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">Gmail</span>
         </a>
 
       </div>
@@ -447,32 +760,32 @@
   <script>
     // Skills Tab Functionality
     function filterSkills(category) {
-        const tabs = document.querySelectorAll('.skill-tab');
-        tabs.forEach(tab => {
-            if (tab.dataset.category === category) {
-                tab.classList.remove('border-white/10', 'bg-surface', 'text-silver', 'hover:border-chrome', 'hover:text-white');
-                tab.classList.add('bg-bloodRed', 'text-white', 'border-bloodRed');
-            } else {
-                tab.classList.add('border-white/10', 'bg-surface', 'text-silver', 'hover:border-chrome', 'hover:text-white');
-                tab.classList.remove('bg-bloodRed', 'text-white', 'border-bloodRed');
-            }
-        });
+      const tabs = document.querySelectorAll('.skill-tab');
+      tabs.forEach(tab => {
+        if (tab.dataset.category === category) {
+          tab.classList.remove('bg-white', 'text-accentPink');
+          tab.classList.add('bg-pastelPink', 'text-white');
+        } else {
+          tab.classList.add('bg-white', 'text-accentPink');
+          tab.classList.remove('bg-pastelPink', 'text-white');
+        }
+      });
 
-        const cards = document.querySelectorAll('.skill-card');
-        cards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
-                card.style.display = 'flex';
-                card.classList.remove('animate-fade-in-up');
-                void card.offsetWidth; // Trigger reflow
-                card.classList.add('animate-fade-in-up');
-            } else {
-                card.style.display = 'none';
-                card.classList.remove('animate-fade-in-up');
-            }
-        });
+      const cards = document.querySelectorAll('.skill-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+          card.classList.remove('animate-fade-in-up');
+          void card.offsetWidth; // Trigger reflow
+          card.classList.add('animate-fade-in-up');
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('animate-fade-in-up');
+        }
+      });
     }
 
-    const words = ["IT Student.", "Web Developer.", "UI/UX Designer.", "Project Management Intern."];
+    const words = ["Web Designing", "Project Management", "Web Development", "UI/UX Design", "Prototyping"];
     let i = 0;
     let j = 0;
     let currentWord = "";
@@ -480,106 +793,115 @@
     const typewriterElement = document.getElementById("typewriter");
 
     function type() {
-        if (!typewriterElement) return;
-        
-        currentWord = words[i];
-        if (isDeleting) {
-            typewriterElement.textContent = currentWord.substring(0, j - 1);
-            j--;
-        } else {
-            typewriterElement.textContent = currentWord.substring(0, j + 1);
-            j++;
-        }
+      if (!typewriterElement) return;
 
-        let typeSpeed = isDeleting ? 80 : 120;
+      currentWord = words[i];
+      if (isDeleting) {
+        typewriterElement.textContent = currentWord.substring(0, j - 1);
+        j--;
+      } else {
+        typewriterElement.textContent = currentWord.substring(0, j + 1);
+        j++;
+      }
 
-        if (!isDeleting && j === currentWord.length) {
-            typeSpeed = 2000; // Pause at end of word
-            isDeleting = true;
-        } else if (isDeleting && j === 0) {
-            isDeleting = false;
-            i = (i + 1) % words.length;
-            typeSpeed = 400; // Pause before typing next word
-        }
+      let typeSpeed = isDeleting ? 80 : 120;
 
-        setTimeout(type, typeSpeed);
+      if (!isDeleting && j === currentWord.length) {
+        typeSpeed = 2000; // Pause at end of word
+        isDeleting = true;
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        typeSpeed = 400; // Pause before typing next word
+      }
+
+      setTimeout(type, typeSpeed);
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(type, 1000);
-        filterSkills('development'); // Default tab
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(type, 1000);
+      filterSkills('development'); // Default tab
     });
 
     // Smooth scrolling and precise top alignment for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                
-                // Calculate navbar height dynamically to prevent overlap
-                const navbar = document.querySelector('nav');
-                const navbarHeight = navbar ? navbar.offsetHeight : 0;
-                
-                // Get element's absolute position minus the fixed navbar height
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                const mobileMenu = document.getElementById('mobile-menu');
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            }
-        });
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+
+          // Calculate navbar height dynamically to prevent overlap
+          const navbar = document.querySelector('nav');
+          const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+          // Get element's absolute position minus the fixed navbar height
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - navbarHeight - 32;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+
+          // Close mobile menu if open
+          const mobileMenu = document.getElementById('mobile-menu');
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
     });
 
     // Active Navigation Link Highlight on Scroll
     function updateActiveNavLink() {
-        const scrollPosition = window.scrollY;
-        const navbar = document.querySelector('nav');
-        const navbarHeight = navbar ? navbar.offsetHeight : 0;
-        const offset = navbarHeight + 100; // Extra buffer to trigger slightly before the section hits the exact top
+      const scrollPosition = window.scrollY;
+      const navbar = document.querySelector('nav');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+      const offset = navbarHeight + 100; // Extra buffer to trigger slightly before the section hits the exact top
 
-        let currentSectionId = '';
-        const sections = document.querySelectorAll('section[id]');
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            
-            if (scrollPosition >= sectionTop - offset && scrollPosition < sectionTop + sectionHeight - offset) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
+      let currentSectionId = '';
+      const sections = document.querySelectorAll('section[id]');
 
-        // Force the last section to be active if scrolled to the absolute bottom of the page
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-             currentSectionId = sections[sections.length - 1].getAttribute('id');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop - offset && scrollPosition < sectionTop + sectionHeight - offset) {
+          currentSectionId = section.getAttribute('id');
         }
+      });
 
-        const navLinks = document.querySelectorAll('nav ul a[href^="#"], #mobile-menu a[href^="#"]');
-        navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${currentSectionId}`) {
-                link.classList.remove('text-silver');
-                link.classList.add('text-bloodRed');
-            } else {
-                link.classList.remove('text-bloodRed');
-                link.classList.add('text-silver');
-            }
-        });
+      // Force the last section to be active if scrolled to the absolute bottom of the page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+        currentSectionId = sections[sections.length - 1].getAttribute('id');
+      }
+
+      const navLinks = document.querySelectorAll('nav ul a[href^="#"], #mobile-menu a[href^="#"]');
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === `#${currentSectionId}`) {
+          link.classList.remove('text-textLight');
+          link.classList.add('text-accentPink');
+        } else {
+          link.classList.remove('text-accentPink');
+          link.classList.add('text-textLight');
+        }
+      });
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
     document.addEventListener('DOMContentLoaded', updateActiveNavLink);
+
+    // Parallax Scrolling Effect
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      document.querySelectorAll('.parallax-wrapper').forEach(el => {
+        const speed = el.getAttribute('data-speed');
+        el.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    });
   </script>
 </body>
 
