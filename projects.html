@@ -57,6 +57,8 @@
             }
         }
     </script>
+    <style>
+    </style>
 </head>
 
 <body class="bg-softBg text-textMain font-sans min-h-screen flex flex-col relative overflow-x-hidden selection:bg-pastelPink selection:text-white">
@@ -83,7 +85,7 @@
     </div>
 
     <!-- Projects Content -->
-    <main class="relative z-10 flex-grow pt-12 pb-16 px-6 opacity-0 animate-fade-in-up">
+    <main class="relative z-10 flex-grow pt-12 pb-16 px-6">
         <div class="max-w-6xl mx-auto w-[98%]">
 
             <!-- Page Header & Intro -->
@@ -129,7 +131,7 @@
             <div id="projects-wrapper" class="min-h-[50vh]">
 
                 <!-- FULL-STACK & WEB SYSTEMS -->
-                <div class="project-category opacity-0 animate-fade-in-up" data-category="web">
+                <div class="project-category" data-category="web">
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
 
                         <!-- Agape Blossoms -->
@@ -223,7 +225,7 @@
                 </div>
 
                 <!-- UI/UX & GRAPHIC DESIGN -->
-                <div class="project-category opacity-0 animate-fade-in-up" data-category="design">
+                <div class="project-category" data-category="design">
                     <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
 
                         <!-- Paagi 1 -->
@@ -591,7 +593,7 @@
                 </div> <!-- Closes Design Category -->
 
                 <!-- VIDEO PRODUCTION -->
-                <div class="project-category opacity-0 animate-fade-in-up" data-category="video">
+                <div class="project-category" data-category="video">
                     <div
                         class="flex flex-col items-center justify-center py-20 text-textLight bg-white/80 backdrop-blur-sm rounded-[2rem] border-2 border-pastelPink/50 border-dashed">
                         <i class="fa-solid fa-video text-5xl mb-4 text-pastelPink animate-float"></i>
@@ -674,11 +676,11 @@
             // Filter and animate groups
             const categories = document.querySelectorAll('.project-category');
             categories.forEach(group => {
-                if (category === 'all' || group.dataset.category === category) {
+                const isVisible = category === 'all' || group.dataset.category === category;
+                if (isVisible) {
                     group.style.display = 'block';
-                    group.classList.remove('animate-fade-in-up');
-                    void group.offsetWidth; // Trigger layout reflow
-                    group.classList.add('animate-fade-in-up');
+                    // Trigger the Motion animation for the cards inside
+                    if (window.animateCategoryCards) window.animateCategoryCards(group);
                 } else {
                     group.style.display = 'none';
                 }

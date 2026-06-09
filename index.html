@@ -77,29 +77,28 @@
     </div>
   </div>
 
-  <!-- Navbar -->
-  <nav
-    class="bg-white/100 fixed top-6 left-0 right-0 mx-auto w-[95%] max-w-[1000px] z-50 backdrop-blur-md border-2 border-pastelPink rounded-2xl transition-all duration-300">
-    <div class="px-6 py-3 flex justify-between items-center w-full">
+  <!-- Navbar -->  
+  <nav id="main-nav" class="bg-white/95 fixed top-0 left-0 right-0 w-full z-50 backdrop-blur-md border-b border-pastelPink/20 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex justify-between items-center w-full">
       <div class="text-3xl font-display font-bold text-textMain tracking-wide">
         Faize<span class="text-accentPink"><i class="fa-solid fa-paw text-xl ml-1"></i></span>
       </div>
       <!-- Desktop Menu -->
       <ul class="hidden md:flex space-x-4 items-center">
         <li><a href="#hero"
-            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Home</a>
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full duration-300">Home</a>
         </li>
         <li><a href="#about"
-            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">About</a>
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full duration-300">About</a>
         </li>
         <li><a href="#skills"
-            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Skills</a>
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full duration-300">Skills</a>
         </li>
         <li><a href="#projects"
-            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Projects</a>
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full duration-300">Projects</a>
         </li>
         <li><a href="#contact"
-            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full border border-pastelPink/20 duration-300">Contact</a>
+            class="text-textLight hover:text-accentPink transition-colors font-bold text-sm tracking-wide bg-white px-4 py-2 rounded-full duration-300">Contact</a>
         </li>
       </ul>
       <!-- Mobile Menu Button -->
@@ -112,8 +111,7 @@
   </nav>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu"
-    class="hidden md:hidden fixed top-[84px] left-0 right-0 mx-auto w-[95%] max-w-[800px] bg-white/95 backdrop-blur-lg border border-pastelPink/30 z-40 rounded-3xl overflow-hidden">
+  <div id="mobile-menu" class="hidden md:hidden fixed top-[68px] left-0 right-0 mx-auto w-[95%] max-w-[800px] bg-white/95 backdrop-blur-lg border border-pastelPink/30 z-40 rounded-3xl overflow-hidden">
     <ul class="flex flex-col space-y-2 p-4 text-center text-textMain font-display">
       <li><a href="#hero"
           class="block text-textLight hover:text-accentPink hover:bg-pastelPink/10 rounded-xl py-3 transition-colors font-bold text-lg">Home
@@ -135,7 +133,7 @@
 
   <!-- Hero Section -->
   <section id="hero"
-    class="relative z-10 min-h-screen flex flex-col lg:flex-row justify-center items-center text-center px-6 md:px-12 pt-24 pb-16 opacity-0 animate-fade-in-up max-w-7xl mx-auto w-[98%] gap-12 lg:gap-8">
+    class="relative z-10 min-h-screen flex flex-col lg:flex-row justify-center items-center text-center px-6 md:px-12 pt-24 pb-10 opacity-0 animate-fade-in-up max-w-7xl mx-auto w-[98%] gap-12 lg:gap-8">
 
     <!-- Left Column: Content -->
     <div class="w-full lg:w-1/2 flex flex-col items-center">
@@ -171,17 +169,17 @@
 
     <!-- Right Column: Image Placeholder -->
     <div class="w-full lg:w-1/2 flex justify-center items-center mt-12 lg:mt-0 relative">
-      <div class="relative w-64 md:w-[350px] lg:w-[400px] animate-float">
+      <div class="relative w-56 md:w-[280px] lg:w-[320px] animate-float">
         <!-- Decorative backing elements -->
         <div class="absolute inset-0 bg-mintGreen/40 rounded-full blur-[50px] animate-blob"></div>
         
         <!-- Scrapbook Backing Paper (Grid) -->
-        <div class="absolute -inset-4 md:-inset-8 bg-white rounded-xl shadow-lg border border-gray-200 transform rotate-3"
+        <div class="absolute -inset-4 md:-inset-6 bg-white rounded-xl shadow-lg border border-gray-200 transform rotate-3"
              style="background-size: 30px 30px; background-image: linear-gradient(to right, rgba(255, 20, 147, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 20, 147, 0.1) 1px, transparent 1px);">
         </div>
 
         <!-- Polaroid Photo Frame -->
-        <div class="relative bg-white p-4 pb-16 md:p-6 md:pb-20 shadow-2xl transform -rotate-2 border border-gray-100 z-10 hover:rotate-0 transition-transform duration-500">
+        <div class="relative bg-white p-4 pb-16 md:p-5 md:pb-16 shadow-2xl transform -rotate-2 border border-gray-100 z-10 hover:rotate-0 transition-transform duration-500">
           <!-- Top Tape -->
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-24 md:w-32 h-8 bg-pastelPink/40 backdrop-blur-sm border-x-2 border-dashed border-white/70 transform -rotate-2 z-20"></div>
           
@@ -189,7 +187,7 @@
           <div class="absolute top-2 right-3 md:right-4 text-3xl transform rotate-12 z-20 drop-shadow-md cursor-pointer hover:animate-wiggle">📌</div>
 
           <div class="relative w-full aspect-square md:aspect-[4/5] bg-softBg border-2 border-pastelPink/20 overflow-hidden">
-            <img src="https://placehold.co/800x1000/FF1493/FFF?text=Your+Photo+Here" alt="Hero Portrait" class="w-full h-full object-cover">
+            <img src="assets\images\graphics\pm-card.png" alt="Hero Portrait" class="w-full h-full object-cover">
           </div>
           
           <!-- Handwritten Caption -->
@@ -214,13 +212,12 @@
   </section>
 
   <!-- About Content -->
-  <section id="about" class="relative z-10 flex flex-col pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
+  <section id="about" class="relative z-10 flex flex-col pt-12 pb-10 px-6 bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 w-full">
     <div class="max-w-7xl mx-auto w-[98%]">
 
       <div class="flex items-center gap-4 mb-12 justify-center text-center">
         <h2 class="text-4xl md:text-5xl font-display font-bold text-textMain tracking-wide relative inline-block">
           About Me
-          <span class="absolute -top-6 -right-8 text-3xl animate-bounce">🧶</span>
         </h2>
       </div>
 
@@ -305,15 +302,8 @@
               <div class="relative scrapbook-item group flex flex-col items-start">
                 <div class="absolute -left-2 sm:-left-6 top-1 text-xl transform -rotate-12 group-hover:rotate-12 transition-transform hidden sm:block">⭐</div>
                 <h4 class="text-xl font-display font-bold text-accentPink bg-white/80 inline-block px-2 rounded-sm mb-1">Web Developer</h4>
-                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">Jan 2026 - Present | El International Church</p>
+                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">Jan 2026 | El International Church</p>
                 <p class="text-base text-textLight leading-[32px] font-medium">Built and designed a dedicated organizational website to improve digital presence and accessibility. Developed responsive web pages and improved overall website usability.</p>
-              </div>
-
-              <div class="relative scrapbook-item group flex flex-col items-start">
-                <div class="absolute -left-2 sm:-left-6 top-1 text-xl transform rotate-12 group-hover:-rotate-12 transition-transform hidden sm:block">⭐</div>
-                <h4 class="text-xl font-display font-bold text-accentPink bg-white/80 inline-block px-2 rounded-sm mb-1">Freelance Web Designer</h4>
-                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">Jan 2025 - May 2025 | Agape Blossoms</p>
-                <p class="text-base text-textLight leading-[32px] font-medium">Developed a custom e-commerce website for a local flower business to support online product display and customer inquiries. Designed responsive user interfaces.</p>
               </div>
 
               <div class="relative scrapbook-item group flex flex-col items-start">
@@ -322,7 +312,16 @@
                 <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">Sep 2024 | Upwork</p>
                 <p class="text-base text-textLight leading-[32px] font-medium">Encoded and organized raw data into structured spreadsheets for international clients. Verified data accuracy.</p>
               </div>
+
+              <div class="relative scrapbook-item group flex flex-col items-start">
+                <div class="absolute -left-2 sm:-left-6 top-1 text-xl transform rotate-12 group-hover:-rotate-12 transition-transform hidden sm:block">⭐</div>
+                <h4 class="text-xl font-display font-bold text-accentPink bg-white/80 inline-block px-2 rounded-sm mb-1">Service Crew (SPES)</h4>
+                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">March 2023 - July 2023 | Chowking SM Val </p>
+                <p class="text-base text-textLight leading-[32px] font-medium">Developed a custom e-commerce website for a local flower business to support online product display and customer inquiries. Designed responsive user interfaces.</p>
+              </div>
             </div>
+
+                
 
             <h3 class="text-3xl font-display font-bold text-textMain mb-6 mt-12 flex items-center justify-start gap-3 w-full">
               <div class="w-10 h-10 bg-pastelPink/20 rounded-full flex items-center justify-center text-accentMint transform -rotate-12 shadow-sm"><i class="fa-solid fa-graduation-cap"></i></div>
@@ -333,15 +332,22 @@
               <div class="relative scrapbook-item flex flex-col items-start">
                 <div class="absolute -left-2 sm:-left-4 top-2 w-3 h-3 bg-accentPink rounded-full shadow-sm hidden sm:block"></div>
                 <h4 class="text-lg font-display font-bold text-accentPink bg-white/80 inline-block px-2 rounded-sm mb-1">BS in Information Technology</h4>
-                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">2023 - Present | PLV</p>
-                <p class="text-sm text-textLight leading-[32px] font-medium">Dean’s Lister (A.Y. 2023–2025). Capstone: A Web-based AI-Driven Supplemental System in Learning Mathematics.</p>
+                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">2023 - Present | Pamantasan Ng Lungsod Ng Valenzuela</p>
+                <p class="text-sm text-textLight leading-[32px] font-medium">
+                  Dean’s Lister (A.Y. 2023–2024, A.Y. 2024–2025). 
+                  <br>
+                  Capstone: MathPulse AI: A Web-based AI-Driven Supplemental System in Learning Mathematics for Senior Highschool of General Tiburcio De Leon National Highschool.</p>
               </div>
 
               <div class="relative scrapbook-item flex flex-col items-start">
                 <div class="absolute -left-2 sm:-left-4 top-2 w-3 h-3 bg-accentPink rounded-full shadow-sm hidden sm:block"></div>
                 <h4 class="text-lg font-display font-bold text-accentPink bg-white/80 inline-block px-2 rounded-sm mb-1">ICT Senior High</h4>
-                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">2021 - 2023 | Electron College</p>
-                <p class="text-sm text-textLight leading-[32px] font-medium">Graduated With High Honors.</p>
+                <p class="text-sm font-bold text-accentMint mb-2 font-display uppercase tracking-wide">2021 - 2023 | Electron College Of Technical Education</p>
+                <p class="text-sm text-textLight leading-[32px] font-medium">
+                  Information and Communications Technology (ICT)
+                  <br>
+                  Graduated With High Honors.
+                </p>
               </div>
             </div>
           </div>
@@ -377,11 +383,11 @@
 
             <!-- Polaroid / Resume Button (Remains Centered) -->
             <div class="mt-8 flex justify-center pb-4 w-full">
-              <a href="https://drive.google.com/uc?export=download&id=1tYaSpE_iHcZZgtXwcCZOCN1PBib9MThl" target="_blank" download class="relative group">
+              <a href="https://drive.google.com/file/d/1tYaSpE_iHcZZgtXwcCZOCN1PBib9MThl/view" target="_blank" class="relative group">
                 <div class="bg-white p-3 pb-8 shadow-md transform rotate-3 group-hover:rotate-0 transition-transform duration-300 border border-gray-200">
                   <div class="absolute -top-3 left-1/2 -translate-x-1/2 text-2xl z-20">📌</div>
                   <div class="bg-mintGreen text-textMain px-8 py-4 flex items-center gap-3 font-display font-bold tracking-wide border-2 border-dashed border-accentPink/50">
-                    Download My Resume <i class="fa-solid fa-download"></i>
+                    View My Resume <i class="fa-solid fa-eye"></i>
                   </div>
                   <span class="absolute bottom-2 right-4 text-xs font-display text-gray-500 font-bold transform -rotate-3">Take me!</span>
                 </div>
@@ -393,7 +399,7 @@
               <div class="relative group bg-white p-3 pb-10 shadow-md transform -rotate-2 hover:rotate-1 transition-transform duration-300 border border-gray-200 w-full max-w-[280px]">
                 <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-6 washi-tape mint transform rotate-2 z-20"></div>
                 <div class="aspect-square w-full bg-softBg border-2 border-pastelPink/20 overflow-hidden">
-                   <img src="https://placehold.co/400x400/FF1493/FFF?text=Photo+Here" alt="My Photo" class="w-full h-full object-cover">
+                   <img src="assets/images/graphics/profilepic.jpg" alt="My Photo" class="w-full h-full object-cover">
                 </div>
                 <span class="absolute bottom-3 right-4 text-sm font-display text-gray-500 font-bold transform -rotate-2">✨ Me!</span>
               </div>
@@ -410,12 +416,11 @@
   </section>
 
   <!-- Skills Content -->
-  <section id="skills" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
+  <section id="skills" class="relative z-10 flex flex-col items-center pt-12 pb-10 px-6">
     <div class="max-w-6xl mx-auto w-[98%]">
       <div class="flex items-center gap-4 mb-12 justify-center">
         <h2 class="text-4xl md:text-5xl font-display font-bold text-textMain text-center relative inline-block">
           My Tech Stack & Toolkit
-          <span class="absolute -top-8 -left-6 text-3xl transform -rotate-12">🛠️</span>
         </h2>
       </div>
 
@@ -444,7 +449,7 @@
       </div>
 
       <!-- Skills Content -->
-      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 max-w-5xl mx-auto w-[98%]">
+      <div class="flex flex-wrap justify-center content-start gap-4 sm:gap-6 max-w-5xl mx-auto w-[98%] min-h-[1150px] sm:min-h-[700px] lg:min-h-[550px]">
 
         <!-- Programming & Web Development -->
         <div data-category="development"
@@ -591,20 +596,26 @@
   </section>
 
   <!-- Featured Projects Content -->
-  <section id="projects" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 opacity-0 animate-fade-in-up">
+  <section id="projects" class="relative z-10 flex flex-col items-center pt-12 pb-10 px-6 bg-gradient-to-br from-purple-300 to-pink-400 w-full">
     <div class="max-w-7xl mx-auto w-[98%]">
-      <div class="flex items-center gap-4 mb-16 justify-center">
+      <div class="flex items-center gap-4 mb-4 justify-center">
         <h2 class="text-4xl md:text-5xl font-display font-bold text-textMain text-center relative">
           Featured Work
-          <div class="absolute -top-6 -right-10 text-4xl transform rotate-12 animate-wiggle hidden sm:block">🎨</div>
         </h2>
       </div>
 
+      <div class="text-center mb-8">
+        <a href="projects.html"
+          class="inline-flex items-center gap-3 bg-white text-textMain border-2 border-pastelPink hover:bg-pastelPink/10 px-8 py-3 rounded-full text-sm font-bold font-display transition-all">
+          Explore All Projects <i class="fa-solid fa-arrow-right text-accentPink"></i>
+        </a>
+      </div>
+
       <!-- OPENED NOTEBOOK CONTAINER FOR FEATURED PROJECT -->
-      <div class="relative w-[98%] mx-auto flex flex-col lg:flex-row bg-white rounded-[2rem] shadow-2xl border-4 border-pastelPink/30 z-10 mb-12">
+      <div class="relative w-[98%] mx-auto flex flex-col lg:flex-row bg-white rounded-[2rem] shadow-2xl border-4 border-pastelPink/30 z-10 mb-4">
         
         <!-- Desktop Center Binder Spine -->
-        <div class="hidden lg:flex absolute left-1/2 top-0 bottom-0 w-10 -translate-x-1/2 spine z-20 flex-col justify-evenly py-8 items-center">
+        <div class="hidden lg:flex absolute left-1/2 top-0 bottom-0 w-10 -translate-x-1/2 spine z-20 flex-col justify-evenly py-4 items-center">
           <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
           <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
           <div class="binder-ring"><div class="binder-hole -left-2"></div><div class="binder-hole -right-2"></div></div>
@@ -614,7 +625,7 @@
         </div>
 
         <!-- LEFT PAGE (IMAGE) -->
-        <div class="w-full lg:w-1/2 relative notebook-paper p-8 lg:p-12 z-10 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-300 rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem] flex items-center justify-center min-h-[400px]">
+        <div class="w-full lg:w-1/2 relative notebook-paper px-8 py-6 lg:px-12 lg:py-8 z-10 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-300 rounded-t-[2rem] lg:rounded-tr-none lg:rounded-l-[2rem] flex items-center justify-center min-h-[350px]">
           <!-- Red Margin Line -->
           <div class="absolute left-10 lg:left-12 top-0 bottom-0 w-[2px] bg-red-400/60 z-0"></div>
           
@@ -634,21 +645,21 @@
             
             <!-- Handwritten Caption -->
             <div class="absolute bottom-3 md:bottom-4 left-0 right-0 text-center">
-              <span class="font-display font-bold text-lg md:text-xl text-accentPink transform rotate-2 inline-block">✨ E-Commerce // 01 ✨</span>
+              <span class="font-display font-bold text-lg md:text-xl text-accentPink transform rotate-2 inline-block">✨ Agape Blossoms✨</span>
             </div>
           </div>
           
-          <div class="absolute bottom-10 left-4 text-4xl transform rotate-12 opacity-80 z-0 animate-pulse">🌟</div>
+          <div class="absolute bottom-6 left-4 text-4xl transform rotate-12 opacity-80 z-0 animate-pulse">🌟</div>
         </div>
 
         <!-- RIGHT PAGE (DETAILS) -->
-        <div class="w-full lg:w-1/2 relative notebook-paper p-8 lg:p-12 z-10 rounded-b-[2rem] lg:rounded-bl-none lg:rounded-r-[2rem] flex flex-col justify-center">
+        <div class="w-full lg:w-1/2 relative notebook-paper px-8 py-6 lg:px-12 lg:py-8 z-10 rounded-b-[2rem] lg:rounded-bl-none lg:rounded-r-[2rem] flex flex-col justify-center">
           <!-- Red Margin Line -->
           <div class="absolute left-10 lg:left-12 top-0 bottom-0 w-[2px] bg-red-400/60 z-0"></div>
           
           <!-- Tape Decoration -->
           <div class="absolute -top-4 right-1/4 w-32 h-8 washi-tape mint transform rotate-3 z-20 flex items-center justify-center text-xs text-white font-bold font-display uppercase tracking-widest">Project</div>
-          <div class="absolute top-10 right-4 text-4xl transform rotate-12 opacity-80 cursor-pointer hover:animate-wiggle z-20">📌</div>
+          <div class="absolute top-6 right-4 text-4xl transform rotate-12 opacity-80 cursor-pointer hover:animate-wiggle z-20">📌</div>
 
           <div class="relative z-10 pl-6 md:pl-8 pt-4 flex flex-col items-center text-center">
             <h3 class="text-4xl font-display font-bold text-textMain mb-6 flex items-center justify-center gap-3 w-full">
@@ -682,84 +693,68 @@
           </div>
         </div>
       </div>
-
-      <div class="text-center">
-        <a href="projects.html"
-          class="inline-flex items-center gap-3 bg-white text-textMain border-2 border-pastelPink hover:bg-pastelPink/10 px-8 py-3 rounded-full text-sm font-bold font-display transition-all">
-          Explore All Projects <i class="fa-solid fa-arrow-right text-accentPink"></i>
-        </a>
-      </div>
     </div>
   </section>
 
   <!-- Contact Content -->
-  <section id="contact" class="relative z-10 flex flex-col items-center pt-20 pb-16 px-6 mb-[10%] opacity-0 animate-fade-in-up">
+  <section id="contact" class="relative z-10 flex flex-col items-center pt-12 pb-12 px-6 bg-gradient-to-br from-blue-100 to-yellow-100 w-full">
     <div class="max-w-4xl mx-auto w-[98%]">
 
       <div class="text-center mb-12 relative">
-        <div
-          class="w-20 h-20 bg-white rounded-full text-accentPink flex items-center justify-center mx-auto mb-6 border-4 border-pastelPink/20 animate-float">
-          <i class="fa-solid fa-envelope-open-text text-3xl"></i>
-        </div>
+  
         <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 text-textMain relative inline-block">
           Let's Connect!
-          <span class="absolute -right-12 -top-4 text-4xl transform rotate-12 hidden sm:block">💌</span>
         </h2>
         <p class="text-textLight mb-8 text-sm md:text-base font-medium leading-relaxed max-w-2xl mx-auto">My inbox is
           always open! Whether you have a question or just want to say hi, I'll try my best to get back to you! 🐾</p>
       </div>
 
-      <!-- Social Media & Contact Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Social Media & Contact List Card -->
+      <div class="w-full max-w-md mx-auto bg-white rounded-[2rem] border border-pastelPink/20 p-8 shadow-sm relative overflow-hidden group hover:border-accentPink transition-colors duration-300">
+        <!-- Decorative element -->
+        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500 z-0 pointer-events-none"></div>
+        
+        <ul class="space-y-6 relative z-10 flex flex-col items-start w-fit mx-auto">
+          <!-- LinkedIn -->
+          <li>
+            <a href="http://www.linkedin.com/in/faijahnonoy" target="_blank" class="flex items-center gap-4 group/link">
+              <div class="w-12 h-12 rounded-full bg-pastelPink/10 flex items-center justify-center group-hover/link:bg-accentPink/10 transition-colors">
+                <i class="fa-brands fa-linkedin text-2xl text-pastelPink group-hover/link:text-accentPink transition-colors"></i>
+              </div>
+              <span class="font-display font-bold text-textMain text-lg group-hover/link:text-accentPink transition-colors">Faijah Nonoy</span>
+            </a>
+          </li>
 
-        <!-- LinkedIn -->
-        <a href="http://www.linkedin.com/in/faijahnonoy" target="_blank"
-          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
-          <div
-            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
-          </div>
-          <i
-            class="fa-brands fa-linkedin text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
-          <span
-            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">LinkedIn</span>
-        </a>
+          <!-- GitHub -->
+          <li>
+            <a href="https://github.com/superfaize" target="_blank" class="flex items-center gap-4 group/link">
+              <div class="w-12 h-12 rounded-full bg-pastelPink/10 flex items-center justify-center group-hover/link:bg-accentPink/10 transition-colors">
+                <i class="fa-brands fa-github text-2xl text-pastelPink group-hover/link:text-accentPink transition-colors"></i>
+              </div>
+              <span class="font-display font-bold text-textMain text-lg group-hover/link:text-accentPink transition-colors">superfaize</span>
+            </a>
+          </li>
 
-        <!-- GitHub -->
-        <a href="https://github.com/superfaize" target="_blank"
-          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
-          <div
-            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
-          </div>
-          <i
-            class="fa-brands fa-github text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
-          <span
-            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">GitHub</span>
-        </a>
+          <!-- Facebook -->
+          <li>
+            <a href="https://www.facebook.com/superfaize" target="_blank" class="flex items-center gap-4 group/link">
+              <div class="w-12 h-12 rounded-full bg-pastelPink/10 flex items-center justify-center group-hover/link:bg-accentPink/10 transition-colors">
+                <i class="fa-brands fa-facebook text-2xl text-pastelPink group-hover/link:text-accentPink transition-colors"></i>
+              </div>
+              <span class="font-display font-bold text-textMain text-lg group-hover/link:text-accentPink transition-colors">superfaize</span>
+            </a>
+          </li>
 
-        <!-- Facebook -->
-        <a href="https://www.facebook.com/superfaize" target="_blank"
-          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
-          <div
-            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
-          </div>
-          <i
-            class="fa-brands fa-facebook text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
-          <span
-            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">Facebook</span>
-        </a>
-
-        <!-- Gmail -->
-        <a href="mailto:faijahnonoy20@gmail.com"
-          class="flex flex-col items-center justify-center p-6 bg-white rounded-[2rem] border border-pastelPink/20 hover:border-accentPink transition-all duration-300 group relative overflow-hidden">
-          <div
-            class="absolute -bottom-4 -right-4 w-16 h-16 bg-pastelPink/10 rounded-full group-hover:scale-150 transition-transform duration-500">
-          </div>
-          <i
-            class="fa-solid fa-envelope text-4xl mb-4 text-pastelPink group-hover:text-accentPink transition-colors duration-300 relative z-10"></i>
-          <span
-            class="font-display font-bold text-textMain text-sm relative z-10 group-hover:text-accentPink">Gmail</span>
-        </a>
-
+          <!-- Gmail -->
+          <li>
+            <a href="mailto:faijahnonoy20@gmail.com" class="flex items-center gap-4 group/link">
+              <div class="w-12 h-12 rounded-full bg-pastelPink/10 flex items-center justify-center group-hover/link:bg-accentPink/10 transition-colors">
+                <i class="fa-solid fa-envelope text-2xl text-pastelPink group-hover/link:text-accentPink transition-colors"></i>
+              </div>
+              <span class="font-display font-bold text-textMain text-[15px] sm:text-lg group-hover/link:text-accentPink transition-colors">faijahnonoy20@gmail.com</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -847,7 +842,7 @@
 
           // Get element's absolute position minus the fixed navbar height
           const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.scrollY - navbarHeight - 32;
+          const offsetPosition = elementPosition + window.scrollY - navbarHeight;
 
           window.scrollTo({
             top: offsetPosition,
@@ -897,6 +892,24 @@
           link.classList.add('text-textLight');
         }
       });
+
+      // Change Back to Top button color based on active section
+      const backToTopBtn = document.getElementById('backToTop');
+      if (backToTopBtn) {
+        // Remove color classes to reset
+        backToTopBtn.classList.remove('bg-pastelPink', 'bg-mintGreen', 'bg-accentPink', 'bg-textLight', 'hover:bg-accentPink', 'hover:bg-pastelPink', 'hover:bg-mintGreen', 'hover:bg-textLight');
+        
+        // Apply new color classes based on the current section
+        if (currentSectionId === 'about') {
+          backToTopBtn.classList.add('bg-mintGreen', 'hover:bg-pastelPink');
+        } else if (currentSectionId === 'skills') {
+          backToTopBtn.classList.add('bg-accentPink', 'hover:bg-mintGreen');
+        } else if (currentSectionId === 'projects') {
+          backToTopBtn.classList.add('bg-textLight', 'hover:bg-accentPink');
+        } else {
+          backToTopBtn.classList.add('bg-pastelPink', 'hover:bg-accentPink');
+        }
+      }
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
@@ -910,6 +923,81 @@
         el.style.transform = `translateY(${scrollY * speed}px)`;
       });
     });
+
+
+  </script>
+
+  <!-- Framer Motion (Vanilla API) Integration -->
+  <script type="module">
+    import { animate, stagger, inView, spring } from "https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm";
+
+    // 1. Smooth Page Transition (Fade in on load)
+    animate("body", { opacity: [0, 1] }, { duration: 0.8, easing: "ease-out" });
+
+    // 2. Stagger Hero Text Animations
+    const heroElements = document.querySelectorAll("#hero h2, #hero h1, #hero .flex-wrap a");
+    if (heroElements.length) {
+      animate(
+        heroElements,
+        { opacity: [0, 1], y: [40, 0] },
+        { delay: stagger(0.15, { startDelay: 0.2 }), duration: 0.8, easing: [0.22, 1, 0.36, 1] }
+      );
+    }
+
+    // 3. Scroll-Triggered Animations for Sections
+    document.querySelectorAll("section:not(#hero) > div").forEach((sectionContent, index) => {
+      sectionContent.style.opacity = 0;
+      // Alternate slide-in direction for a dynamic effect
+      const slideFrom = index % 2 === 0 ? -100 : 100;
+      inView(sectionContent, () => {
+        animate(sectionContent, { opacity: [0, 1], x: [slideFrom, 0] }, { duration: 1, easing: [0.22, 1, 0.36, 1] });
+      }, { margin: "-150px" });
+    });
+
+    // 4. Staggered Skills Cards Animation
+    const skillsSection = document.querySelector("#skills");
+    if (skillsSection) {
+      inView(skillsSection, () => {
+        const cards = document.querySelectorAll(".skill-card");
+        cards.forEach(card => card.style.opacity = 0);
+        animate(
+          ".skill-card",
+          { opacity: [0, 1], scale: [0.8, 1] },
+          { delay: stagger(0.05), duration: 0.5, easing: spring({ stiffness: 300, damping: 20 }) }
+        );
+      }, { margin: "-50px" });
+    }
+
+    // 5. Hover Effects for Interactive Cards
+    document.querySelectorAll(".skill-card, .group").forEach(card => {
+      card.addEventListener("mouseenter", () => animate(card, { y: -8 }, { duration: 0.3, easing: "ease-out" }));
+      card.addEventListener("mouseleave", () => animate(card, { y: 0 }, { duration: 0.3, easing: "ease-out" }));
+    });
+
+    // 6. Smooth Page Transitions for internal links
+    document.querySelectorAll('a[href]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto')) {
+          e.preventDefault();
+          animate("body", { opacity: 0, y: -20 }, { duration: 0.4, easing: "ease-in" }).finished.then(() => {
+            window.location.href = href;
+          });
+        }
+      });
+    });
+
+        // Back to Top Button Logic
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        });
   </script>
 </body>
 
